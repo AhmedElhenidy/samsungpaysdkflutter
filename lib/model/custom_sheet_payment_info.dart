@@ -289,14 +289,12 @@ class CustomSheetPaymentInfo {
   ///
 
   String? getPaymentCurrencyCode() {
-    if (customSheet != null) {
       for (SheetControl sheet in customSheet.getSheetControls()!) {
         if (sheet.controltype == Controltype.AMOUNTBOX) {
           AmountBoxControl amountBoxControl = sheet as AmountBoxControl;
           return amountBoxControl.currencyCode;
         }
       }
-    }
     return "";
   }
 
