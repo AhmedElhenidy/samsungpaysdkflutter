@@ -1,8 +1,8 @@
 name: samsung_pay_sdk_flutter
-description: SamsungPay SDK for Android only
-version: 1.0.0
-homepage: https://developer.samsung.com/pay/flutter/overview.html
-
+description: SamsungPay SDK depends on the official SDK from Samsung offers an easy way to implement samsung pay for android devices
+version: 1.0.1
+homepage: https://developer.samsung.com/codelab/pay/flutter-plugin.html#Objective
+repository: https://github.com/AhmedElhenidy/samsungpaysdkflutter
 environment:
   sdk: '>=3.1.0 <4.0.0'
   flutter: '>=3.3.0'
