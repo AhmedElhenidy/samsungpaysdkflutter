@@ -75,13 +75,10 @@ class AddCardInfo{
   ///
 
   static const String EXTRA_SAMSUNG_PAY_CARD = "extra_samsung_pay_card";
-  ///  Indicates that the card tokenization provider is VaccinePass.<br>
-  ///  refer addCard(AddCardInfo, AddCardListener) in detail.<br>
-  /// <br>
+  ///  Indicates that the card tokenization provider is VaccinePass.
+  ///  refer addCard(AddCardInfo, AddCardListener) in detail.
   ///
-  ///<br/><font color="blue">
-  ///    <b>Json Object Specification</b><br>
-  ///</font>
+  ///   Json Object Specification
   ///
   /// Mandatory fields: version, cardId, type, cardArt, qrData, decoding, chunks, chunk,
   /// provider.name, patient.name, vaccine.product, vaccine.date, performer
@@ -113,14 +110,14 @@ class AddCardInfo{
 
   /// Constructor to create AddCardInfo instance. <br>
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [cardType] Card type to add.
   ///
   /// [tokenizationProvider] Tokenization provider of the card.
   ///
   /// [cardDetail] Card detail which partner wants to pass to Samsung Pay.
   ///
-  /// <b>[Exceptions:]</b><br>
+  ///  [Exceptions:] 
   /// Throws an [ArgumentError] if not allowed card type is used. Or cardDetail does not contain [EXTRA_PROVISION_PAYLOAD]. <br>
   /// Throws an [ArgumentError] if tokenizationProvider or cardDetail is empty. <br>
   ///
