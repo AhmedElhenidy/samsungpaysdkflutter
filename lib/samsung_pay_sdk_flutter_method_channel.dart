@@ -1,12 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:samsung_pay_sdk_flutter/model/address_control.dart';
 import 'package:samsung_pay_sdk_flutter/samsung_pay_sdk_flutter.dart';
-import 'model/custom_sheet.dart';
-import 'model/custom_sheet_payment_info.dart';
-import 'model/payment_card_info.dart';
-import 'samsung_pay_sdk_flutter_platform_interface.dart';
 import 'dart:developer' as developer;
 
 /// An implementation of [SamsungPaySdkFlutterPlatform] that uses method channels.

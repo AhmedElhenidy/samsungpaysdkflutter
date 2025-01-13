@@ -1,12 +1,6 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
+import '../samsung_pay_sdk_flutter.dart';
 
-import 'model/add_card_info.dart';
-import 'model/custom_sheet.dart';
-import 'model/custom_sheet_payment_info.dart';
-import 'model/partner_info.dart';
-import 'model/payment_card_info.dart';
-import 'samsung_pay_listener.dart';
-import 'samsung_pay_sdk_flutter_method_channel.dart';
 
 abstract class SamsungPaySdkFlutterPlatform extends PlatformInterface {
   /// Constructs a SamsungPaySdkFlutterPlatform.
