@@ -1,6 +1,6 @@
-import 'package:samsung_pay_sdk_flutter/model/amount_box_control.dart';
-import 'package:samsung_pay_sdk_flutter/model/custom_sheet.dart';
-import 'package:samsung_pay_sdk_flutter/spay_core.dart';
+
+import 'package:samsung_pay_sdk_flutter/samsung_pay_sdk_flutter.dart';
+
 import '../util/Strings.dart';
 
 import '../main.dart';

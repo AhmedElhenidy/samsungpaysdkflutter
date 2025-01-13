@@ -1,7 +1,6 @@
-import 'package:samsung_pay_sdk_flutter/model/address.dart';
-import 'package:samsung_pay_sdk_flutter/model/address_control.dart';
-import 'package:samsung_pay_sdk_flutter/samsung_pay_listener.dart';
-import 'package:samsung_pay_sdk_flutter/spay_core.dart';
+
+import 'package:samsung_pay_sdk_flutter/samsung_pay_sdk_flutter.dart';
+
 import '../util/Strings.dart';
 
 class BillingAddressControls{

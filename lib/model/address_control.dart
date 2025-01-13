@@ -206,8 +206,9 @@ class AddressControl extends SheetControl{
     addressControl.sheetItem = SheetItem.fromJson(json["sheetItem"]);
     addressControl.address = Address.fromJson(json["address"]);
     addressControl.sheetUpdatedListener = sheetUpdatedListener;
-    if(SheetItem.fromJson(json["sheetItem"]).sheetItemType.toString() == SheetItemType.SHIPPING_ADDRESS.name)
+    if(SheetItem.fromJson(json["sheetItem"]).sheetItemType.toString() == SheetItemType.SHIPPING_ADDRESS.name){
       addressControl.setDisplayOption(json["displayOption"] as int);
+    }
     addressControl.setErrorCode(json["errorCode"] as int);
     return addressControl;
   }
@@ -217,18 +218,23 @@ class AddressControl extends SheetControl{
     Map<String, dynamic> addressControl= {};
     addressControl["controltype"] = controltype.name;
     addressControl["controlId"] = controlId;
-    if(sheetItem != null)
+    if(sheetItem != null) {
       addressControl["sheetItem"] = sheetItem?.toJson();
-    if(address != null)
+    }
+    if(address != null) {
       addressControl["address"] = address?.toJson();
-    if(displayOption != null)
+    }
+    if(displayOption != null) {
       addressControl["displayOption"] = displayOption;
-    if(errorCode != null)
+    }
+    if(errorCode != null) {
       addressControl["errorCode"] = errorCode;
-    if(sheetUpdatedListener != null)
+    }
+    if(sheetUpdatedListener != null) {
       addressControl["sheetUpdatedListener"] = true;
-    else
+    } else {
       addressControl["sheetUpdatedListener"] = false;
+    }
     return addressControl;
   }
 }

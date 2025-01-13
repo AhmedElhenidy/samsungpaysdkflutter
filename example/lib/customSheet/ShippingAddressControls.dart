@@ -1,11 +1,6 @@
 
-import 'package:samsung_pay_sdk_flutter/model/address.dart';
-import 'package:samsung_pay_sdk_flutter/model/address_control.dart';
-import 'package:samsung_pay_sdk_flutter/model/address_control.dart';
-import 'package:samsung_pay_sdk_flutter/model/sheet_item.dart';
-import 'package:samsung_pay_sdk_flutter/model/spinner_control.dart';
-import 'package:samsung_pay_sdk_flutter/samsung_pay_listener.dart';
-import 'package:samsung_pay_sdk_flutter/spay_core.dart';
+
+import 'package:samsung_pay_sdk_flutter/samsung_pay_sdk_flutter.dart';
 
 import '../main.dart';
 import '../util/Strings.dart';

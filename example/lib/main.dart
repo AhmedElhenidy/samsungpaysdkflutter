@@ -2,12 +2,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:samsung_pay_sdk_flutter/model/address_control.dart';
-import 'package:samsung_pay_sdk_flutter/model/custom_sheet.dart';
-import 'package:samsung_pay_sdk_flutter/model/custom_sheet_payment_info.dart';
-import 'package:samsung_pay_sdk_flutter/model/payment_card_info.dart';
-import 'package:samsung_pay_sdk_flutter/model/plain_text_control.dart';
-import 'package:samsung_pay_sdk_flutter/model/spinner_control.dart';
 import 'package:samsung_pay_sdk_flutter/samsung_pay_sdk_flutter.dart';
 import 'package:samsung_pay_sdk_flutter_example/util/Strings.dart';
 import 'customSheet/AmountDetailControls.dart';
