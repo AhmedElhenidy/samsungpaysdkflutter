@@ -3,7 +3,7 @@ import 'package:samsung_pay_sdk_flutter/samsung_pay_sdk_flutter.dart';
 
 ///
 /// This class holds the partner information.
-/// Any third party application using the Samsung Pay SDK is considered as partner app.<br>
+/// Any third party application using the Samsung Pay SDK is considered as partner app. 
 /// The third party application can be an issuer app (bank app), merchant app, and so on.
 ///
 
@@ -11,18 +11,18 @@ class PartnerInfo{
   String serviceId;
   Map<String,dynamic> data;
 
-  /// Constructor to create Partner Information.<br>
+  /// Constructor to create Partner Information. 
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [serviceId]
   ///      Unique ID to represent the service. Partner should on-board
   ///      with Samsung Pay Developers to receive this ID.
   /// [data]
-  ///      Extra data which partner wants to pass to Samsung Pay.<br>
-  ///      If partner app integrates SDK v1.4.00 or higher, Service Type must be set in data bundle.<br>
+  ///      Extra data which partner wants to pass to Samsung Pay. 
+  ///      If partner app integrates SDK v1.4.00 or higher, Service Type must be set in data bundle. 
   ///      Refer to the usage sample below.
   ///
-  /// Extra data bundle key-value pairs are defined as follows:<br><br>
+  /// Extra data bundle key-value pairs are defined as follows:  
   /// <table>
   ///     <tr style="border:1px solid black;">
   ///         <th style="border:1px solid black;">Keys</th>
@@ -30,12 +30,12 @@ class PartnerInfo{
   ///     </tr>
   ///     <tr style="border:1px solid black;">
   ///         <td style="border:1px solid black;">[SpaySdk.EXTRA_ISSUER_NAME]</td>
-  ///         <td style="border:1px solid black;">String issuerName (issuerCode for Korean issuers)<br>
+  ///         <td style="border:1px solid black;">String issuerName (issuerCode for Korean issuers) 
   ///          Issuer: mandatory. Merchant: not required.</td>
   ///     </tr>
   ///     <tr style="border:1px solid black;">
   ///         <td style="border:1px solid black;">[SpaySdk.PARTNER_SERVICE_TYPE]</td>
-  ///         <td style="border:1px solid black;">String SamsungPay.ServiceType.ABC.toString()<br>
+  ///         <td style="border:1px solid black;">String SamsungPay.ServiceType.ABC.toString() 
   ///           This value is mandatory because it will be used to verify if the service type is allowed or not.</td>
   ///     </tr>
   /// </table>

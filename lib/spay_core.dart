@@ -25,33 +25,33 @@ class SpaySdk{
   ///
   static const int ERROR_NOT_FOUND = -4;
   ///
-  /// This error indicates that requested operation is already done.<br>
+  /// This error indicates that requested operation is already done. 
   /// For example, adding a card to Samsung Wallet but the card is already added either via Samsung Wallet or issuer app.
   ///
   static const int ERROR_ALREADY_DONE = -5;
   ///
-  ///This error indicates that requested operation is not allowed.<br>
+  ///This error indicates that requested operation is not allowed. 
   ///For example, partner app verification has failed in Samsung Pay server.
   ///
   static const int ERROR_NOT_ALLOWED = -6;
   ///
-  ///This error indicates that user has cancelled before completing the requested operation.<br>
+  ///This error indicates that user has cancelled before completing the requested operation. 
   ///For example, user taps the cancel or back key on the payment sheet.
   ///
   static const int ERROR_USER_CANCELED = -7;
   ///
-  /// This error indicates that SDK API level is missing or invalid.<br>
-  /// Partner must set valid API level in the AndroidManifest file. Minimum possible version is 1.4.<br>
-  /// Also if the Partner set the values defined in higher API level, Samsung Pay will send this error to partner app.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_PARTNER_INFO_INVALID] error.<br>
+  /// This error indicates that SDK API level is missing or invalid. 
+  /// Partner must set valid API level in the AndroidManifest file. Minimum possible version is 1.4. 
+  /// Also if the Partner set the values defined in higher API level, Samsung Pay will send this error to partner app. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_PARTNER_INFO_INVALID] error. 
   ///
   /// Since API Level 1.4
   ///
   static const int ERROR_PARTNER_SDK_API_LEVEL = -10;
   ///
-  /// This error indicates that the Service Type is invalid.<br>
-  /// Partner must set valid Service Type in PartnerInfo when calling APIs.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [SPAY_NOT_READY] error.<br>
+  /// This error indicates that the Service Type is invalid. 
+  /// Partner must set valid Service Type in PartnerInfo when calling APIs. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [SPAY_NOT_READY] error. 
   ///
   /// Since API Level 1.4
   ///
@@ -63,48 +63,48 @@ class SpaySdk{
   ///
   static const int ERROR_INVALID_PARAMETER = -12;
   ///
-  ///This error indicates that Samsung Pay is unable to connect to the server since there is no network.<br>
+  ///This error indicates that Samsung Pay is unable to connect to the server since there is no network. 
   ///For example, partner app tries to verify with server while network is not connected.
   ///
   static const int ERROR_NO_NETWORK = -21;
   ///
-  ///This error indicates that server did not respond to the Samsung Pay request.<br>
+  ///This error indicates that server did not respond to the Samsung Pay request. 
   ///
   static const int ERROR_SERVER_NO_RESPONSE = -22;
   ///
-  ///This error indicates that partner information is invalid.<br>
+  ///This error indicates that partner information is invalid. 
   ///For example, partner app is using SDK version not allowed, invalid service type, wrong api level, and so on.
   ///
   ///Since API Level 2.5
   ///
   static const int ERROR_PARTNER_INFO_INVALID = -99;
   ///
-  /// This error indicates that session initiation or service binding has failed.<br>
+  /// This error indicates that session initiation or service binding has failed. 
   /// For example, if the service connection with Samsung Pay was not successful.
   ///
   static const int ERROR_INITIATION_FAIL = -103;
   ///
-  /// This error indicates that the card provisioning has failed.<br>
+  /// This error indicates that the card provisioning has failed. 
   ///
   /// Since API Level 1.2
   ///
   static const int ERROR_REGISTRATION_FAIL = -104;
   ///
-  /// This error indicates that duplicate API called by Partner.<br>
+  /// This error indicates that duplicate API called by Partner. 
   ///
   /// Since API Level 2.1
   ///
   static const int ERROR_DUPLICATED_SDK_API_CALLED = -105;
   ///
-  /// This error indicates that the Samsung Pay SDK is not supported in particular region.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error.<br>
+  /// This error indicates that the Samsung Pay SDK is not supported in particular region. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error. 
   /// For example, if the device is from the country that Samsung Pay SDK is not supported,
-  /// then the partner app verification will be failed.<br>
+  /// then the partner app verification will be failed. 
   ///
   static const int ERROR_SDK_NOT_SUPPORTED_FOR_THIS_REGION = -300;
   ///
-  /// This error indicates that product ID is not registered with the Samsung Pay Developers.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error.<br>
+  /// This error indicates that product ID is not registered with the Samsung Pay Developers. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error. 
   /// For example, if invalid product ID was used in partner app,
   /// then the partner app verification will be failed.
   /// Deprecated use [ERROR_SERVICE_ID_INVALID] instead
@@ -112,8 +112,8 @@ class SpaySdk{
   @Deprecated('Deprecated')
   static const int ERROR_PRODUCT_ID_INVALID = -301;
   ///
-  /// This error indicates that service ID is not registered with the Samsung Pay Developers.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error.<br>
+  /// This error indicates that service ID is not registered with the Samsung Pay Developers. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error. 
   /// For example, if invalid service ID was used in partner app,
   /// then the partner app verification will be failed.
   ///
@@ -133,8 +133,8 @@ class SpaySdk{
   ///
   static const int ERROR_SERVICE_UNAVAILABLE_FOR_THIS_REGION = -302;
   ///
-  /// This error indicates that product and product ID does not match on the Samsung Pay Developers.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error.<br>
+  /// This error indicates that product and product ID does not match on the Samsung Pay Developers. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error. 
   /// For example, if the registered partner app information is not matched with product ID,
   /// then the partner app verification will be failed.
   /// Deprecated use [ERROR_SERVICE_NOT_VERIFIED_WITH_PARTNER] instead
@@ -142,8 +142,8 @@ class SpaySdk{
   @Deprecated('Deprecated')
   static const int ERROR_PRODUCT_NOT_VERIFIED_WITH_PARTNER = -303;
   ///
-  /// This error indicates that service and service ID does not match on the Samsung Pay Developers.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error.<br>
+  /// This error indicates that service and service ID does not match on the Samsung Pay Developers. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error. 
   /// For example, if the registered partner app information is not matched with service ID,
   /// then the partner app verification will be failed.
   ///
@@ -153,17 +153,17 @@ class SpaySdk{
   @Deprecated('Deprecated')
   static const int ERROR_SERVICE_NOT_VERIFIED_WITH_PARTNER = -303;
   ///
-  /// This error indicates that the app signature is different from the one registered from Samsung Pay Developers.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error.<br>
-  /// For example, if different signature is used for signing apk, the partner app verification will be failed.<br>
+  /// This error indicates that the app signature is different from the one registered from Samsung Pay Developers. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error. 
+  /// For example, if different signature is used for signing apk, the partner app verification will be failed. 
   /// Checking signature logic will be activated in case debug mode is "N".
   ///
   /// Since API Level 2.9
   ///
   static const int ERROR_PARTNER_APP_SIGNATURE_MISMATCH = -303;
   ///
-  /// This error indicates that product version is not supported by Samsung Pay.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error.<br>
+  /// This error indicates that product version is not supported by Samsung Pay. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error. 
   /// For example, if the version is not registered,
   /// then the partner app verification will be failed.
   /// Deprecated use [ERROR_SERVICE_VERSION_NOT_SUPPORTED] instead
@@ -171,8 +171,8 @@ class SpaySdk{
   @Deprecated('Deprecated')
   static const int ERROR_PRODUCT_VERSION_NOT_SUPPORTED = -304;
   ///
-  /// This error indicates that service version is not supported by Samsung Pay.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error.<br>
+  /// This error indicates that service version is not supported by Samsung Pay. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error. 
   /// For example, if the version is not registered,
   /// then the partner app verification will be failed.
   ///
@@ -182,17 +182,17 @@ class SpaySdk{
   @Deprecated('Deprecated')
   static const int ERROR_SERVICE_VERSION_NOT_SUPPORTED = -304;
   ///
-  /// This error indicates that app version is not supported by Samsung Pay.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error.<br>
+  /// This error indicates that app version is not supported by Samsung Pay. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error. 
   /// For example, if the version registered from developer portal is higher than current version(or no any version registered),
-  /// then the partner app verification will be failed.<br>
+  /// then the partner app verification will be failed. 
   ///
   /// Since API Level 2.9
   ///
   static const int ERROR_PARTNER_APP_VERSION_NOT_SUPPORTED = -304;
   ///
-  /// This error indicates that product version is removed/blocked by the Samsung Pay Developers.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error.<br>
+  /// This error indicates that product version is removed/blocked by the Samsung Pay Developers. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error. 
   /// For example, if the partner app is blocked,
   /// then the partner app verification will be failed.
   /// Deprecated use [ERROR_SERVICE_BLOCKED] instead
@@ -200,8 +200,8 @@ class SpaySdk{
   @Deprecated('Deprecated')
   static const int ERROR_PRODUCT_BLOCKED = -305;
   ///
-  /// This error indicates that service version is removed/blocked by the Samsung Pay Developers.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error.<br>
+  /// This error indicates that service version is removed/blocked by the Samsung Pay Developers. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error. 
   /// For example, if the partner app is blocked,
   /// then the partner app verification will be failed.
   ///
@@ -211,8 +211,8 @@ class SpaySdk{
   @Deprecated('Deprecated')
   static const int ERROR_SERVICE_BLOCKED = -305;
   ///
-  /// This error indicates that partner app version is removed/blocked by the Samsung Pay Developers.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error.<br>
+  /// This error indicates that partner app version is removed/blocked by the Samsung Pay Developers. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error. 
   /// For example, if the partner app is blocked,
   /// then the partner app verification will be failed.
   ///
@@ -220,15 +220,15 @@ class SpaySdk{
   ///
   static const int ERROR_PARTNER_APP_BLOCKED = -305;
   ///
-  /// This error indicates that user account is not registered for using debug mode on the Samsung Pay Developers.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error.<br>
+  /// This error indicates that user account is not registered for using debug mode on the Samsung Pay Developers. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error. 
   /// For example, if the partner app is in debug mode but the Samsung Account is not registered for the debug-api-key,
   /// then the partner app verification will be failed.
   ///
   static const int ERROR_USER_NOT_REGISTERED_FOR_DEBUG = -306;
   ///
-  /// This error indicates that product version is not approved for release by the Samsung Pay Developers.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error.<br>
+  /// This error indicates that product version is not approved for release by the Samsung Pay Developers. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error. 
   /// For example, if the partner app is not registered for release mode,
   /// then the partner app verification will be failed.
   /// Deprecated use [ERROR_SERVICE_NOT_APPROVED_FOR_RELEASE]
@@ -236,8 +236,8 @@ class SpaySdk{
   @Deprecated('Deprecated')
   static const int ERROR_PRODUCT_NOT_APPROVED_FOR_RELEASE = -307;
   ///
-  /// This error indicates that service version is not approved for release by the Samsung Pay Developers.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error.<br>
+  /// This error indicates that service version is not approved for release by the Samsung Pay Developers. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error. 
   /// For example, if the partner app is not registered for release mode,
   /// then the partner app verification will be failed.
   ///
@@ -245,29 +245,29 @@ class SpaySdk{
   ///
   static const int ERROR_SERVICE_NOT_APPROVED_FOR_RELEASE = -307;
   ///
-  /// This error indicates that partner registration is not done on the Samsung Pay Developers.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error.<br>
+  /// This error indicates that partner registration is not done on the Samsung Pay Developers. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error. 
   /// For example, if the partner app is submitted but not approved,
   /// then the partner app verification will be failed.
   ///
   static const int ERROR_PARTNER_NOT_APPROVED = -308;
   ///
-  /// This error indicates that the partner is not authorized for this request type such as payment or enrollment.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error.<br>
+  /// This error indicates that the partner is not authorized for this request type such as payment or enrollment. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error. 
   /// For example, if the merchant app calls enrollment API,
   /// then the partner app verification will be failed.
   ///
   static const int ERROR_UNAUTHORIZED_REQUEST_TYPE = -309;
   ///
-  /// This error indicates that debug key is invalid or expired.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error.<br>
+  /// This error indicates that debug key is invalid or expired. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error. 
   /// For example, if the partner app uses expired debug-api-key,
   /// then the partner app verification will be failed.
   ///
   static const int ERROR_EXPIRED_OR_INVALID_DEBUG_KEY = -310;
   ///
-  /// This error indicates that server fails to proceed request due to unknown internal error.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_SPAY_INTERNAL] error.<br>
+  /// This error indicates that server fails to proceed request due to unknown internal error. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_SPAY_INTERNAL] error. 
   /// For example, if the server error occurred while the partner verification is going on,
   /// then the partner app verification will be failed.
   ///
@@ -275,44 +275,44 @@ class SpaySdk{
   ///
   static const int ERROR_SERVER_INTERNAL = -311;
   ///
-  /// This error indicates that the device is not a Samsung device.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [SPAY_NOT_SUPPORTED] error.<br>
+  /// This error indicates that the device is not a Samsung device. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [SPAY_NOT_SUPPORTED] error. 
   ///
   ///
   static const int ERROR_DEVICE_NOT_SAMSUNG = -350;
   ///
-  /// This error indicates that the Samsung Wallet application is not on the device.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [SPAY_NOT_SUPPORTED] error.<br>
+  /// This error indicates that the Samsung Wallet application is not on the device. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [SPAY_NOT_SUPPORTED] error. 
   /// This could mean that the device does not support Samsung Pay.
   ///
   static const int ERROR_SPAY_PKG_NOT_FOUND = -351;
   ///
-  /// This error indicates that SDK service is not available on this device.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [SPAY_NOT_SUPPORTED] error.<br>
+  /// This error indicates that SDK service is not available on this device. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [SPAY_NOT_SUPPORTED] error. 
   ///
   static const int ERROR_SPAY_SDK_SERVICE_NOT_AVAILABLE = -352;
   ///
-  /// This error indicates that device integrity check has failed.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [SPAY_NOT_SUPPORTED] error.<br>
+  /// This error indicates that device integrity check has failed. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [SPAY_NOT_SUPPORTED] error. 
   ///
   static const int ERROR_DEVICE_INTEGRITY_CHECK_FAIL = -353;
   ///
-  /// This error indicates that Samsung Wallet app integrity check has failed.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [SPAY_NOT_SUPPORTED] error.<br>
+  /// This error indicates that Samsung Wallet app integrity check has failed. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [SPAY_NOT_SUPPORTED] error. 
   ///
   static const int ERROR_SPAY_APP_INTEGRITY_CHECK_FAIL = -360;
   ///
-  /// This error indicates that Android platform version check has failed.<br>
-  /// For in-app Payment, the Samsung Pay SDK requires Android 6.0(M) (Android API level 23) or later versions of the Android OS.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [SPAY_NOT_SUPPORTED] error.<br>
+  /// This error indicates that Android platform version check has failed. 
+  /// For in-app Payment, the Samsung Pay SDK requires Android 6.0(M) (Android API level 23) or later versions of the Android OS. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [SPAY_NOT_SUPPORTED] error. 
   /// Since API Level 1.5
   ///
   static const int ERROR_ANDROID_PLATFORM_CHECK_FAIL = -361;
   ///
-  /// This error indicates that some information by partner is shorter than expected.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error.<br>
+  /// This error indicates that some information by partner is shorter than expected. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error. 
   /// For example, if the partner app does not deliver some information to Samsung Pay to get the wallet information,
-  /// then Samsung Pay will send this error to partner app.<br>
+  /// then Samsung Pay will send this error to partner app. 
   /// Also if the partner does not define issuer name on Samsung Pay Developers,
   /// then Samsung Pay will send this error to partner app.
   /// Deprecated use [ERROR_MISSING_INFORMATION] instead.
@@ -320,32 +320,32 @@ class SpaySdk{
   @Deprecated('Deprecated')
   static const int ERROR_SHORT_INFORMATION = -354;
   ///
-  /// This error indicates that some information of partner is missing.<br>
-  /// This error code is returned as an [EXTRA_ERROR_REASON] of [ERROR_NOT_ALLOWED] error.<br>
+  /// This error indicates that some information of partner is missing. 
+  /// This error code is returned as an [EXTRA_ERROR_REASON] of [ERROR_NOT_ALLOWED] error. 
   /// For example, if the partner app does not deliver a required information to Samsung Pay to get the wallet information,
-  /// then Samsung Pay will send this error to partner app.<br>
+  /// then Samsung Pay will send this error to partner app. 
   /// Also if the partner does not define the issuer name in Samsung Pay Developer portal,
-  /// Samsung Pay will send this error to partner app.<br>
+  /// Samsung Pay will send this error to partner app. 
   ///
   static const int ERROR_MISSING_INFORMATION = -354;
   ///
-  /// This error indicates that the Samsung Pay setup was not completed.<br>
+  /// This error indicates that the Samsung Pay setup was not completed. 
   /// Partner app need to ask user to set up Samsung Wallet app. If user agrees, call [SamsungPaySdkFlutter.activateSamsungPay] API
-  /// .<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [SPAY_NOT_READY] error.<br>
+  /// . 
+  /// This is returned as [EXTRA_ERROR_REASON] for [SPAY_NOT_READY] error. 
   ///
   static const int ERROR_SPAY_SETUP_NOT_COMPLETED = -356;
   ///
-  /// This error indicates that the Samsung Pay should be updated.<br>
-  /// Partner app need to ask user to update Samsung Wallet app. If user agrees, call [goToUpdatePage()] API.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [SPAY_NOT_READY] error.<br>
+  /// This error indicates that the Samsung Pay should be updated. 
+  /// Partner app need to ask user to update Samsung Wallet app. If user agrees, call [goToUpdatePage()] API. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [SPAY_NOT_READY] error. 
   ///
   /// Since API Level 1.1
   ///
   static const int ERROR_SPAY_APP_NEED_TO_UPDATE = -357;
   ///
-  /// This error indicates that the partner app should be updated.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [SPAY_NOT_READY] error.<br>
+  /// This error indicates that the partner app should be updated. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [SPAY_NOT_READY] error. 
   ///
   /// Since API Level 1.1
   ///
@@ -354,23 +354,23 @@ class SpaySdk{
   @Deprecated('Deprecated')
   static const int ERROR_PARTNER_APP_NEED_TO_UPDATE = -358;
   ///
-  /// This error indicates that the partner app is using Samsung Pay SDK not allowed.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_PARTNER_INFO_INVALID] error.<br>
+  /// This error indicates that the partner app is using Samsung Pay SDK not allowed. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_PARTNER_INFO_INVALID] error. 
   ///
   /// Since API Level 2.5
   ///
   static const int ERROR_PARTNER_SDK_VERSION_NOT_ALLOWED = -358;
   ///
-  /// This error indicates that Samsung Pay is unable to verify partner app at this moment.<br>
-  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error.<br>
+  /// This error indicates that Samsung Pay is unable to verify partner app at this moment. 
+  /// This is returned as [EXTRA_ERROR_REASON] for [ERROR_NOT_ALLOWED] error. 
   /// For example, Samsung Pay tried to connect to the server and validate partner ID,
   /// but the device does not have the network connectivity.
   ///
   static const int ERROR_UNABLE_TO_VERIFY_CALLER = -359;
   ///
-  /// This error indicates that device is locked due to FMM(Find My Mobile).<br>
+  /// This error indicates that device is locked due to FMM(Find My Mobile). 
   /// Partner app needs to ask user to unlock the Samsung Wallet app.
-  /// If user agrees, call [activateSamsungPay()] to unlock the Samsung Pay app.<br>
+  /// If user agrees, call [activateSamsungPay()] to unlock the Samsung Pay app. 
   ///
   /// See [activateSamsungPay()]
   ///
@@ -378,15 +378,15 @@ class SpaySdk{
   ///
   static const int ERROR_SPAY_FMM_LOCK = -604;
   ///
-  /// This error indicates that device is connected with an external display.<br>
-  /// Due to security reason, Samsung Pay cannot be launched at this moment.<br>
-  /// In this case, partner can guide user to disconnect any external display if connected.<br>
+  /// This error indicates that device is connected with an external display. 
+  /// Due to security reason, Samsung Pay cannot be launched at this moment. 
+  /// In this case, partner can guide user to disconnect any external display if connected. 
   ///
   /// Since API Level 2.7
   ///
   static const int ERROR_SPAY_CONNECTED_WITH_EXTERNAL_DISPLAY = -605;
   ///
-  /// Samsung Pay is not supported on this device.<br>
+  /// Samsung Pay is not supported on this device. 
   /// Usually, this status code is returned if the device is not compatible
   /// to run Samsung Pay or if the Samsung Pay app is not installed.
   ///
@@ -394,9 +394,9 @@ class SpaySdk{
   ///
   static const int SPAY_NOT_SUPPORTED = 0;
   ///
-  /// Samsung Pay is not completely activated.<br>
+  /// Samsung Pay is not completely activated. 
   /// Usually, this status code is returned if the user did not complete
-  /// the mandatory update or if the user is not signed in with the Samsung Account yet.<br>
+  /// the mandatory update or if the user is not signed in with the Samsung Account yet. 
   /// In this case, partner app can call [activateSamsungPay()] API
   /// to launch Samsung Pay or can call [goToUpdatePage()] API to update Samsung Wallet app.
   ///
@@ -404,7 +404,7 @@ class SpaySdk{
   ///
   static const int SPAY_NOT_READY = 1;
   ///
-  /// Samsung Pay is activated and ready to use.<br>
+  /// Samsung Pay is activated and ready to use. 
   /// Usually, this status code is returned after user completes
   /// all the mandatory updates and is signed in.
   ///
@@ -412,14 +412,14 @@ class SpaySdk{
   ///
   static const int SPAY_READY = 2;
   ///
-  /// Samsung Pay is not allowed temporally.<br>
-  /// Refer extra reason delivered with [EXTRA_ERROR_REASON].<br>
+  /// Samsung Pay is not allowed temporally. 
+  /// Refer extra reason delivered with [EXTRA_ERROR_REASON]. 
   ///
   /// Since API Level 2.7
   ///
   static const int SPAY_NOT_ALLOWED_TEMPORALLY = 3;
   ///
-  /// This code is returned if Samsung Pay has a registered transit card.<br>
+  /// This code is returned if Samsung Pay has a registered transit card. 
   /// This is for Korean issuers only.
   ///
   /// Since API Level 2.8
@@ -457,14 +457,14 @@ class SpaySdk{
   ///
   static const String EXTRA_LAST4_FPAN = "last4Fpan";
   ///
-  /// Key to represent name of the issuer.<br>
+  /// Key to represent name of the issuer. 
   /// This key can be used in the bundle for [PartnerInfo.PartnerInfo].
   ///
   /// Since API Level 1.1
   ///
   static const String EXTRA_ISSUER_NAME = "issuerName";
   ///
-  /// Key to represent names of the issuer from OPM server.<br>
+  /// Key to represent names of the issuer from OPM server. 
   ///
   /// Since API Level 1.1
   ///
@@ -476,7 +476,7 @@ class SpaySdk{
   ///
   static const String EXTRA_ISSUER_PKGNAME = "issuerPkgName";
   ///
-  /// Key to represent name of the partner app.<br>
+  /// Key to represent name of the partner app. 
   /// This key can be used in the bundle for [PartnerInfo.PartnerInfo].
   ///
   /// Since API Level 2.6
@@ -495,20 +495,20 @@ class SpaySdk{
   ///
   static const String EXTRA_ERROR_REASON_MESSAGE = "errorReasonMessage";
   ///
-  /// Key to represent card type.<br>
-  /// The possible values are: <br>
-  /// [WalletCard.CARD_TYPE_CREDIT_DEBIT]<br>
-  /// [WalletCard.CARD_TYPE_CREDIT]<br>
-  /// [WalletCard.CARD_TYPE_DEBIT]<br>
-  /// [WalletCard.CARD_TYPE_GIFT]<br>
-  /// [WalletCard.CARD_TYPE_LOYALTY]<br>
-  /// [WalletCard.CARD_TYPE_TRANSIT]<br>
+  /// Key to represent card type. 
+  /// The possible values are:  
+  /// [WalletCard.CARD_TYPE_CREDIT_DEBIT] 
+  /// [WalletCard.CARD_TYPE_CREDIT] 
+  /// [WalletCard.CARD_TYPE_DEBIT] 
+  /// [WalletCard.CARD_TYPE_GIFT] 
+  /// [WalletCard.CARD_TYPE_LOYALTY] 
+  /// [WalletCard.CARD_TYPE_TRANSIT] 
   ///
   /// Since API Level 1.1
   ///
   static const String EXTRA_CARD_TYPE = "cardType";
   ///
-  /// Key to represent card brand.<br>
+  /// Key to represent card brand. 
   /// Since API Level 1.7
   ///
   static const String EXTRA_CARD_BRAND = "cardBrand";
@@ -520,22 +520,22 @@ class SpaySdk{
   ///
   static const String EXTRA_IS_DEFAULT_CARD = "defaultCard";
   ///
-  /// Key to represent type of the device (Mobile or Gear). <br>
-  /// The possible values are: <br>
-  /// [SpaySdk.DEVICE_TYPE_PHONE]<br>
-  /// [SpaySdk.DEVICE_TYPE_GEAR]<br>
+  /// Key to represent type of the device (Mobile or Gear).  
+  /// The possible values are:  
+  /// [SpaySdk.DEVICE_TYPE_PHONE] 
+  /// [SpaySdk.DEVICE_TYPE_GEAR] 
   /// Since API Level 1.1
   ///
   static const String EXTRA_DEVICE_TYPE = "deviceType";
   ///
-  /// Key to represent member ID of the issuer.<br>
+  /// Key to represent member ID of the issuer. 
   /// This is for Korean issuers only.
   ///
   /// Since API Level 1.1
   ///
   static const String EXTRA_MEMBER_ID = "memberID";
   ///
-  /// Key to represent country code.<br>
+  /// Key to represent country code. 
   /// Device Country code(ISO 3166-1 alpha-2)
   ///
   /// Since API Level 1.1
@@ -557,63 +557,63 @@ class SpaySdk{
   ///
   static const String EXTRA_CRYPTOGRAM_TYPE = "cryptogramType";
   ///
-  /// Key to represent additional data.<br>
+  /// Key to represent additional data. 
   ///
-  /// Partner can use this key to put tagged data to a bundle before sending to Samsung Pay.<br>
+  /// Partner can use this key to put tagged data to a bundle before sending to Samsung Pay. 
   ///
   /// Since API Level 2.4
   ///
   static const String EXTRA_RESOLVED_1 = "extra_resolved_1";
   ///
-  /// Key to represent additional data.<br>
+  /// Key to represent additional data. 
   ///
-  /// Partner can use this key to put tagged data to a bundle before sending to Samsung Pay.<br>
+  /// Partner can use this key to put tagged data to a bundle before sending to Samsung Pay. 
   ///
   /// Since API Level 2.4
   ///
   static const String EXTRA_RESOLVED_2 = "extra_resolved_2";
   ///
-  /// Key to represent additional data.<br>
+  /// Key to represent additional data. 
   ///
-  /// Partner can use this key to put tagged data to a bundle before sending to Samsung Pay.<br>
+  /// Partner can use this key to put tagged data to a bundle before sending to Samsung Pay. 
   ///
   /// Since API Level 2.4
   ///
   static const String EXTRA_RESOLVED_3 = "extra_resolved_3";
   ///
-  /// Key to represent additional data.<br>
+  /// Key to represent additional data. 
   ///
-  /// Partner can use this key to put tagged data to a bundle before sending to Samsung Pay.<br>
+  /// Partner can use this key to put tagged data to a bundle before sending to Samsung Pay. 
   ///
   /// Since API Level 2.4
   ///
   static const String EXTRA_RESOLVED_4 = "extra_resolved_4";
   ///
-  /// Key to represent additional data.<br>
+  /// Key to represent additional data. 
   ///
-  /// Partner can use this key to put tagged data to a bundle before sending to Samsung Pay.<br>
+  /// Partner can use this key to put tagged data to a bundle before sending to Samsung Pay. 
   ///
   /// Since API Level 2.4
   ///
   static const String EXTRA_RESOLVED_5 = "extra_resolved_5";
   ///
-  /// Key to represent additional data.<br>
+  /// Key to represent additional data. 
   ///
-  /// Partner can use this key to put tagged data to a bundle before sending to Samsung Pay.<br>
+  /// Partner can use this key to put tagged data to a bundle before sending to Samsung Pay. 
   ///
   /// Since API Level 2.4
   ///
   static const String EXTRA_RESOLVED_6 = "extra_resolved_6";
   ///
-  /// Key to represent additional data.<br>
+  /// Key to represent additional data. 
   ///
-  /// Partner can use this key to put tagged data to a bundle before sending to Samsung Pay.<br>
+  /// Partner can use this key to put tagged data to a bundle before sending to Samsung Pay. 
   ///
   /// Since API Level 2.4
   ///
   static const String EXTRA_RESOLVED_7 = "extra_resolved_7";
   ///
-  /// Key to represent request id.<br>
+  /// Key to represent request id. 
   ///
   /// When a request is failed, TR will send this key to partner app.
   /// Request ID would be helpful for debugging a failed request between partner and TR.
@@ -642,10 +642,10 @@ class SpaySdk{
   ///
   static const String CRYPTOGRAM_TYPE_ICC = "ICC";
   ///
-  /// Key to represent that a merchant supports combo card.<br>
+  /// Key to represent that a merchant supports combo card. 
   ///
-  /// Partner can use this key to let customers to choose debit/credit in case of combo card. <br>
-  /// It can be put as an optional value in extraPaymentInfo of [CustomSheetPaymentInfo].<br><br>
+  /// Partner can use this key to let customers to choose debit/credit in case of combo card.  
+  /// It can be put as an optional value in extraPaymentInfo of [CustomSheetPaymentInfo].  
   ///
   /// The possible value is the boolean.
   ///
@@ -654,10 +654,10 @@ class SpaySdk{
   ///
   static const String EXTRA_SUPPORT_COMBO_CARD = "supportComboCard";
   ///
-  /// Key to represent that a merchant accepts combo card.<br>
+  /// Key to represent that a merchant accepts combo card. 
   ///
-  /// Partner can use this key to let customers to choose debit/credit in case of combo card. <br>
-  /// It can be put as an optional value in extraPaymentInfo of [CustomSheetPaymentInfo].<br><br>
+  /// Partner can use this key to let customers to choose debit/credit in case of combo card.  
+  /// It can be put as an optional value in extraPaymentInfo of [CustomSheetPaymentInfo].  
   ///
   /// The possible value is the boolean.
   ///
@@ -665,41 +665,41 @@ class SpaySdk{
   ///
   static const String EXTRA_ACCEPT_COMBO_CARD = "acceptComboCard";
   ///
-  /// Key to represent that a partner requires CPF.<br>
+  /// Key to represent that a partner requires CPF. 
   ///
-  /// Partner can use this key to ask Samsung Pay to show CPF information in the payment sheet. <br>
-  /// It can be put as an optional value in extraPaymentInfo of [CustomSheetPaymentInfo].<br><br>
+  /// Partner can use this key to ask Samsung Pay to show CPF information in the payment sheet.  
+  /// It can be put as an optional value in extraPaymentInfo of [CustomSheetPaymentInfo].  
   ///
-  /// The possible value is the boolean.<br>
+  /// The possible value is the boolean. 
   /// This is for Brazil partners only.
   ///
   /// Since API Level 2.11
   ///
   static const String EXTRA_REQUIRE_CPF = "requireCpf";
   ///
-  /// Key to get CPF holder name in extra payment data.<br>
+  /// Key to get CPF holder name in extra payment data. 
   ///
   /// When Partner requests CPF by [EXTRA_REQUIRE_CPF] key, the Samsung Pay would
   /// bundle CPF information in the extraPaymentData parameter of
-  /// [CustomSheetTransactionInfoListener.onSuccess]callback <br>
+  /// [CustomSheetTransactionInfoListener.onSuccess]callback  
   ///
   ///
   /// Since API Level 2.11
   ///
   static const String EXTRA_CPF_HOLDER_NAME = "cpfHolderName";
   ///
-  /// Key to get CPF number in extra payment data.<br>
+  /// Key to get CPF number in extra payment data. 
   ///
   /// When Partner requests CPF by [EXTRA_REQUIRE_CPF] key, the Samsung Pay would
   /// bundle CPF information in the extraPaymentData parameter of
-  /// [CustomSheetTransactionInfoListener.onSuccess]callback <br>
+  /// [CustomSheetTransactionInfoListener.onSuccess]callback  
   ///
   ///
   /// Since API Level 2.11
   ///
   static const String EXTRA_CPF_NUMBER = "cpfNumber";
   ///
-  /// Key to set/get merchant reference ID beyond marketplace app or service(i.e. Bixby).<br>
+  /// Key to set/get merchant reference ID beyond marketplace app or service(i.e. Bixby). 
   ///
   /// When marketplace apps request In-App payment, they can set merchant reference ID so that Samsung Wallet app can get detail
   /// information about the merchant using the ID.
@@ -708,7 +708,7 @@ class SpaySdk{
   ///
   static const String EXTRA_MERCHANT_REF_ID = "merchantRefId";
   ///
-  /// Key to represent wallet provider ID.<br>
+  /// Key to represent wallet provider ID. 
   /// This ID can be assigned by TSP during on-boarding process.
   ///
   /// Since API Level 1.2
@@ -733,7 +733,7 @@ class SpaySdk{
   ///
   static const String WALLET_DM_ID = "walletDMId";
   ///
-  /// Key to represent unique Service Type.<br>
+  /// Key to represent unique Service Type. 
   /// This key must be set in the bundle for [PartnerInfo.PartnerInfo].
   ///
   /// Since API Level 1.4
@@ -747,12 +747,12 @@ class SpaySdk{
   ///
   static const String PARTNER_SDK_API_LEVEL = "PartnerSdkApiLevel";
 
-  /// Key to represent request card filter list.<br>
+  /// Key to represent request card filter list. 
   /// Partner can use this key to put filter into bundle for requestCardInfo
   ///
   /// Since API Level 2.7
   static const String EXTRA_KEY_CARD_BRAND_FILTER = "card_brand_filter";
-  /// This table shows the status codes used commonly.<br>
+  /// This table shows the status codes used commonly. 
   ///
   /// <table>
   ///     <tr style="border:1px solid black;">
@@ -883,7 +883,7 @@ class SpaySdk{
   ///         <td style="border:1px solid black;">N/A</td>
   ///     </tr>
   ///  </table>
-  /// <br>
+  ///  
 
   static const String COMMON_STATUS_TABLE = "common_error_table";
 
@@ -920,7 +920,7 @@ class SpaySdk{
 }
 
 ///
-/// This enumeration provides Service Types.<br>
+/// This enumeration provides Service Types. 
 /// Partners must set their Service Type in the PartnerInfo when they call any APIs.
 ///
 /// Since API Level 1.4
@@ -961,7 +961,7 @@ enum ServiceType {
 
 ///
 /// This enumeration provides SDK supported card brands such as
-/// AMERICAN EXPRESS, MASTERCARD, VISA, DISCOVER, CHINA UNIONPAY, OCTOPUS, ECI and PAGOBANCOMAT.<br>
+/// AMERICAN EXPRESS, MASTERCARD, VISA, DISCOVER, CHINA UNIONPAY, OCTOPUS, ECI and PAGOBANCOMAT. 
 ///
 /// Since API Level 1.1
 ///
@@ -1004,39 +1004,39 @@ enum AddressInPaymentSheet {
   ///
   DO_NOT_SHOW,
   ///
-  /// Merchant requires billing address from Samsung Wallet for payment.<br>
+  /// Merchant requires billing address from Samsung Wallet for payment. 
   /// Show only billing address list on the payment sheet. User could select one on the payment sheet.
   ///
   NEED_BILLING_SPAY,
   ///
-  /// Merchant requires shipping address from Samsung Wallet for payment. <br>
+  /// Merchant requires shipping address from Samsung Wallet for payment.  
   /// Show only shipping address list on the payment sheet. User could select one on the payment sheet.
   ///
   NEED_SHIPPING_SPAY,
   ///
-  /// Merchant will send the shipping address for payment.<br>
+  /// Merchant will send the shipping address for payment. 
   /// Show only shipping address shared by merchant as fixed value on the payment sheet. Unlike
   /// [AddressInPaymentSheet.NEED_BILLING_SPAY] or [AddressInPaymentSheet.NEED_SHIPPING_SPAY], user will not be
   /// able to change the shipping address on the payment sheet.
   ///
   SEND_SHIPPING,
   ///
-  /// Merchant requires billing address from Samsung Wallet and sends the shipping address for payment.<br>
+  /// Merchant requires billing address from Samsung Wallet and sends the shipping address for payment. 
   /// Show both billing and shipping address on the payment sheet. Unlike
   /// [AddressInPaymentSheet.NEED_BILLING_SPAY] or [AddressInPaymentSheet.NEED_SHIPPING_SPAY], user will not
   /// be able to change the shipping address on the payment sheet.
   ///
   NEED_BILLING_SEND_SHIPPING,
   ///
-  /// Merchant requires billing and shipping address from Samsung Wallet for payment.<br>
+  /// Merchant requires billing and shipping address from Samsung Wallet for payment. 
   /// Show both address lists on the payment sheet. User could select billing and shipping address from the list on the
   /// payment sheet.
   ///
   NEED_BILLING_AND_SHIPPING
 }
 ///
-/// This enumeration provides SDK supported SheetControl type such as<br>
-/// PLAINTEXT, AMOUNTBOX, ADDRESS and SPINNER.<br>
+/// This enumeration provides SDK supported SheetControl type such as 
+/// PLAINTEXT, AMOUNTBOX, ADDRESS and SPINNER. 
 ///
 
 
@@ -1058,7 +1058,7 @@ enum SheetItemType {
   ///
   SHIPPING_ADDRESS,
   ///
-  /// It is used for designating shipping method in SpinnerControl.<br>
+  /// It is used for designating shipping method in SpinnerControl. 
   /// User will be able to change shipping method only when
   /// [AddressInPaymentSheet.NEED_SHIPPING_SPAY] or
   /// [AddressInPaymentSheet.NEED_BILLING_AND_SHIPPING] is set when building a
@@ -1066,7 +1066,7 @@ enum SheetItemType {
   ///
   SHIPPING_METHOD_SPINNER,
   ///
-  /// It is used for designating installment in SpinnerControl.<br>
+  /// It is used for designating installment in SpinnerControl. 
   /// This is for Korean issuers only.
   ///
 
@@ -1075,8 +1075,8 @@ enum SheetItemType {
 }
 
 ///
-/// This enumeration provides SDK supported SheetControl type such as<br>
-/// [PLAINTEXT], [AMOUNTBOX], [ADDRESS] and [SPINNER].<br>
+/// This enumeration provides SDK supported SheetControl type such as 
+/// [PLAINTEXT], [AMOUNTBOX], [ADDRESS] and [SPINNER]. 
 ///
 enum Controltype{
   ///
@@ -1084,7 +1084,7 @@ enum Controltype{
   ///
   PLAINTEXT,
   ///
-  /// Controltype for AmountBox Component.<br>
+  /// Controltype for AmountBox Component. 
   ///  There must be one AMOUNTBOX type in SheetControls.
   ///
   AMOUNTBOX,

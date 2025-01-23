@@ -10,7 +10,7 @@ class WalletCard{
   ///
 
   static const String DISPOSED = "DISPOSED";
-  /// Card is registered on Samsung Pay, but its current status is "expired".<br>
+  /// Card is registered on Samsung Pay, but its current status is "expired". 
   /// This might occur if the card or token expiration time has reached and Samsung Pay
   /// has not renewed it.
   ///
@@ -21,17 +21,17 @@ class WalletCard{
   /// @nodoc
 
   static const String PENDING_ENROLLED = "ENROLLED";
-  /// Card is not fully registered on Samsung Pay and current state is "pending provision".<br>
+  /// Card is not fully registered on Samsung Pay and current state is "pending provision". 
   /// Usually, this state returns when the user has not completed the secondary authentication(IDV).
   ///
 
   static const String PENDING_PROVISION = "PENDING_PROVISION";
-  /// Card is registered on Samsung Pay and current state is "suspended".<br>
+  /// Card is registered on Samsung Pay and current state is "suspended". 
   /// Suspend can be triggered by issuer, card network, or the user.
   ///
 
   static const String SUSPENDED = "SUSPENDED";
-  /// Card is registered on Samsung Pay but not activated yet.<br>
+  /// Card is registered on Samsung Pay but not activated yet. 
   /// A notification of card activation is expected to be pushed to Samsung Pay in a moment.
   ///
 
@@ -64,7 +64,7 @@ class WalletCard{
   ///
 
   static const String CARD_TYPE_TRANSIT = "TRANSIT";
-  ///  Indicates that the card type is vaccine pass. <br>
+  ///  Indicates that the card type is vaccine pass.  
   ///
 
   static const String CARD_TYPE_VACCINE_PASS = "VACCINE_PASS";
@@ -75,13 +75,13 @@ class WalletCard{
   String cardStatus;
 
   ///@nodoc
-  /// Constructor to create WalletCard.<br>
+  /// Constructor to create WalletCard. 
   ///
-  ///<b>[Parameters:]</b><br>
-  /// [cardId] Unique ID to refer a card in Samsung Wallet.<br>
-  /// [cardStatus] Current card status.<br>
-  /// [cardBrand] Supported card brand.<br>
-  /// [cardInfo] constructing CardInfo object which is passed to Samsung Wallet from merchant. Check the [CardInfo] class. <br>
+  /// [Parameters:] 
+  /// [cardId] Unique ID to refer a card in Samsung Wallet. 
+  /// [cardStatus] Current card status. 
+  /// [cardBrand] Supported card brand. 
+  /// [cardInfo] constructing CardInfo object which is passed to Samsung Wallet from merchant. Check the [CardInfo] class.  
   WalletCard( {
     required this.cardId,
     required this.cardStatus,
@@ -107,9 +107,9 @@ class WalletCard{
 }
 
 /// This class provides card information such as card brand.
-/// Supported card brands are as follows:<br><br>
-/// - AMERICAN EXPRESS, MASTERCARD, VISA <br>
-/// - CHINA UNIONPAY (For China)<br><br>
+/// Supported card brands are as follows:  
+/// - AMERICAN EXPRESS, MASTERCARD, VISA  
+/// - CHINA UNIONPAY (For China)  
 ///
 
 

@@ -1,9 +1,13 @@
+## 1.0.3
+*  Migrate example app to gradle 8.
+*  Code enhance.
+
 ## 1.0.2
-*  code enhance.
+*  Code enhance.
 
 ## 1.0.1
-*  update readme.
-*  add example
+*  Update readme.
+*  Add example
 
 ## 1.0.0
 *  Initial release.

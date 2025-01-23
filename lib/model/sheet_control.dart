@@ -20,12 +20,12 @@ class SheetControl {
   });
 
   ///@nodoc
-  /// API to set controlId. <br>
+  /// API to set controlId.  
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [controlId] Unique ID to be set.
   ///
-  /// <b>[Exceptions]:</b><br>
+  ///  [Exceptions]: 
   ///Throws an [ArgumentError] if controlId is invalid.
 
   void setControlId(String controlId) {
@@ -36,7 +36,7 @@ class SheetControl {
   }
 
   ///
-  /// API to get controlId. <br>
+  /// API to get controlId.  
   ///
   /// Return The controlId of the SheetControl.
   ///
@@ -46,7 +46,7 @@ class SheetControl {
   }
 
   ///
-  /// API to get controltype. <br>
+  /// API to get controltype.  
   ///
   /// Return The controltype of the SheetControl.
   ///

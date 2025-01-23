@@ -1,7 +1,7 @@
 
 import '../samsung_pay_sdk_flutter.dart';
 
-/// This class provides APIs to fetch Payment information details with custom payment sheet information.<br>
+/// This class provides APIs to fetch Payment information details with custom payment sheet information. 
 /// That is, transaction details set by the merchant app.
 ///
 
@@ -27,7 +27,7 @@ class CustomSheetPaymentInfo {
 
   /// API to set the address display option for payment sheet.
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [addressInPaymentSheet] Address UI to display on the payment sheet.
   /// Return CustomSheetPaymentInfo Builder.
   ///
@@ -38,7 +38,7 @@ class CustomSheetPaymentInfo {
 
   /// API to set the card brands list supported by merchant.
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [brands] Card brands supported by merchant for payment.
   ///
 
@@ -46,12 +46,12 @@ class CustomSheetPaymentInfo {
     allowedCardBrand = brands;
   }
 
-  /// API to set the flag if merchant wants to display card holder's name. <br>
+  /// API to set the flag if merchant wants to display card holder's name.  
   ///
-  /// Set to 'true' if card holder's name should be displayed with card information on the payment sheet.<br>
+  /// Set to 'true' if card holder's name should be displayed with card information on the payment sheet. 
   /// If issuer does not provide card holder's name, it will not be displayed.
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [isCardHolderNameRequired] True, if merchant wants to display card holder's name on the payment sheet.
   ///
 
@@ -59,9 +59,9 @@ class CustomSheetPaymentInfo {
     this.isCardHolderNameRequired = isCardHolderNameRequired;
   }
 
-  /// API to set customSheet.<br>
+  /// API to set customSheet. 
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [customSheet] CustomSheet configured by merchant.
   ///
 
@@ -71,7 +71,7 @@ class CustomSheetPaymentInfo {
 
   /// API to set the extra payment information data.
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [extraPaymentInfo] Extra PaymentInfo data.
   ///
 
@@ -79,14 +79,14 @@ class CustomSheetPaymentInfo {
     this.extraPaymentInfo = extraPaymentInfo;
   }
 
-  /// API to set the merchant country code. <br>
+  /// API to set the merchant country code.  
   /// This API internally verifies and sets two-letter merchant country code, if it is a valid country code.
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [merchantCountryCode] Country code, where merchant is operating.
   ///
-  /// <b>[Exceptions:]</b><br>
-  /// Throws an [ArgumentError] if merchantCountryCode is invalid.<br>
+  ///  [Exceptions:] 
+  /// Throws an [ArgumentError] if merchantCountryCode is invalid. 
   ///
 
   void setMerchantCountryCode(String merchantCountryCode){
@@ -95,10 +95,10 @@ class CustomSheetPaymentInfo {
 
   /// API to set the merchant reference ID.
   ///
-  /// <b>[Parameters:]</b><br>
-  /// [merchantId] Merchant reference ID which can be used for merchant's own purpose.<br>
+  ///  [Parameters:] 
+  /// [merchantId] Merchant reference ID which can be used for merchant's own purpose. 
   ///         For example, if merchant uses a Payment Gateway which requires Payment Gateway User ID,
-  ///         then merchantId field can be set with a Payment Gateway User ID.<br>
+  ///         then merchantId field can be set with a Payment Gateway User ID. 
   ///
 
   void setMerchantId(String merchantId){
@@ -107,7 +107,7 @@ class CustomSheetPaymentInfo {
 
   /// API to set the merchant name.
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [merchantName] Merchant name.
   ///
 
@@ -116,9 +116,9 @@ class CustomSheetPaymentInfo {
   }
 
   /// API to set the order number.
-  /// <b>[Parameters:]</b><br>
-  /// [orderNumber] Order number sent by merchant for records.<br>
-  /// The allowed characters are [A-Z][a-z][0-9,-] & up to 36 characters.<br>
+  ///  [Parameters:] 
+  /// [orderNumber] Order number sent by merchant for records. 
+  /// The allowed characters are [A-Z][a-z][0-9,-] & up to 36 characters. 
   /// This field is mandatory for VISA.
   ///
 
@@ -126,12 +126,12 @@ class CustomSheetPaymentInfo {
     this.orderNumber = orderNumber;
   }
 
-  /// API to set the card brand for payment transaction.<br>
-  /// This API can be used with setPaymentCardLast4DPAN(String) or <br>
+  /// API to set the card brand for payment transaction. 
+  /// This API can be used with setPaymentCardLast4DPAN(String) or  
   /// setPaymentCardLast4FPAN(String) API method
-  /// to designate specific card for the transaction.<br>
+  /// to designate specific card for the transaction. 
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [cardBrand] Card brand.
   ///
 
@@ -140,11 +140,11 @@ class CustomSheetPaymentInfo {
     extraPaymentInfo![SpaySdk.EXTRA_CARD_BRAND] = cardBrand.name;
   }
 
-  /// API to set the last 4 digits of DPAN for payment transaction.<br>
+  /// API to set the last 4 digits of DPAN for payment transaction. 
   /// This API can be used with setPaymentCardBrand(SpaySdk.Brand) API method
-  /// to designate specific card for the transaction.<br>
+  /// to designate specific card for the transaction. 
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [last4digits] The last 4 digits of DPAN for payment transaction.
   ///
 
@@ -153,11 +153,11 @@ class CustomSheetPaymentInfo {
     extraPaymentInfo![SpaySdk.EXTRA_LAST4_DPAN] = last4digits;
   }
 
-  /// API to set the last 4 digits of FPAN for payment transaction.<br>
+  /// API to set the last 4 digits of FPAN for payment transaction. 
   /// This API can be used with setPaymentCardBrand(SpaySdk.Brand) API method
-  /// to designate specific card for the transaction.<br>
+  /// to designate specific card for the transaction. 
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [last4digits] The last 4 digits of FPAN for payment transaction.
   ///
 
@@ -166,9 +166,9 @@ class CustomSheetPaymentInfo {
     extraPaymentInfo![SpaySdk.EXTRA_LAST4_FPAN] = last4digits;
   }
 
-  /// API to set the shipping method for payment transaction.<br>
+  /// API to set the shipping method for payment transaction. 
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [shippingMethod] Shipping method.
   ///
 
@@ -179,7 +179,7 @@ class CustomSheetPaymentInfo {
 
   /// API to set if payment is recurring.
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [isRecurring] True, if payment is recurring.
   ///
 
@@ -204,9 +204,9 @@ class CustomSheetPaymentInfo {
 
   /// API to return the merchant reference ID.
   ///
-  /// Return Merchant reference ID which can be used for merchant's own purpose.<br>
+  /// Return Merchant reference ID which can be used for merchant's own purpose. 
   ///         For example, if merchant uses a Payment Gateway which requires Payment Gateway User ID,
-  ///         then merchantId field can be set with a Payment Gateway User ID.<br>
+  ///         then merchantId field can be set with a Payment Gateway User ID. 
   ///
   ///
 
@@ -230,12 +230,12 @@ class CustomSheetPaymentInfo {
     return orderNumber;
   }
 
-  /// API to return the card brand which was used in the current transaction.<br>
-  /// Partner can get this information if needed. They can use this for their own purpose.<br>
+  /// API to return the card brand which was used in the current transaction. 
+  /// Partner can get this information if needed. They can use this for their own purpose. 
   /// This API method can be used in
-  /// [CustomSheetTransactionInfoListener.onSuccess(CustomSheetPaymentInfo, String, Bundle)] callback only.<br>
+  /// [CustomSheetTransactionInfoListener.onSuccess(CustomSheetPaymentInfo, String, Bundle)] callback only. 
   ///
-  /// This api is available only with US Samsung Wallet app.<br>
+  /// This api is available only with US Samsung Wallet app. 
   /// Return Card brand which was used in the current transaction.
   ///
 
@@ -244,12 +244,12 @@ class CustomSheetPaymentInfo {
     return extraPaymentInfo![SpaySdk.EXTRA_CARD_BRAND];
   }
 
-  /// API to return the last 4 digits of DPAN which was used in the current transaction.<br>
-  /// Partner can get this information if needed. They can use this for their own purpose.<br>
+  /// API to return the last 4 digits of DPAN which was used in the current transaction. 
+  /// Partner can get this information if needed. They can use this for their own purpose. 
   /// This API method can be used in
-  /// [CustomSheetTransactionInfoListener.onSuccess(CustomSheetPaymentInfo, String, Bundle)] callback only.<br>
+  /// [CustomSheetTransactionInfoListener.onSuccess(CustomSheetPaymentInfo, String, Bundle)] callback only. 
   ///
-  /// This api is available only with US Samsung Wallet app.<br>
+  /// This api is available only with US Samsung Wallet app. 
   /// Return The last 4 digits of DPAN which was used in the current transaction.
   ///
 
@@ -258,12 +258,12 @@ class CustomSheetPaymentInfo {
     return extraPaymentInfo![SpaySdk.EXTRA_LAST4_DPAN];
   }
 
-  /// API to return the last 4 digits of FPAN which was used in the current transaction.<br>
-  /// Partner can get this information if needed. They can use this for their own purpose.<br>
+  /// API to return the last 4 digits of FPAN which was used in the current transaction. 
+  /// Partner can get this information if needed. They can use this for their own purpose. 
   /// This API method can be used in
-  /// [CustomSheetTransactionInfoListener.onSuccess(CustomSheetPaymentInfo, String, Bundle)] callback only.<br>
+  /// [CustomSheetTransactionInfoListener.onSuccess(CustomSheetPaymentInfo, String, Bundle)] callback only. 
   ///
-  /// This api is available only with US Samsung Wallet app.<br>
+  /// This api is available only with US Samsung Wallet app. 
   /// Return The last 4 digits of FPAN which was used in the current transaction.
   ///
 
@@ -272,12 +272,12 @@ class CustomSheetPaymentInfo {
     return extraPaymentInfo![SpaySdk.EXTRA_LAST4_FPAN];
   }
 
-  /// API to return the ISO currency code which was used in the current transaction.<br>
-  /// Partner can get this information if needed. They can use this for their own purpose.<br>
+  /// API to return the ISO currency code which was used in the current transaction. 
+  /// Partner can get this information if needed. They can use this for their own purpose. 
   /// This API method can be used in
-  /// [CustomSheetTransactionInfoListener.onSuccess(CustomSheetPaymentInfo, String, Bundle)] callback only.<br>
+  /// [CustomSheetTransactionInfoListener.onSuccess(CustomSheetPaymentInfo, String, Bundle)] callback only. 
   ///
-  /// This api is available only with US Samsung Wallet app.<br>
+  /// This api is available only with US Samsung Wallet app. 
   /// Return Currency code which was used in the current transaction.
   ///
 
@@ -291,12 +291,12 @@ class CustomSheetPaymentInfo {
     return "";
   }
 
-  /// API to return the shipping/delivery address which was used in the current transaction.<br>
-  /// Partner can get this information if needed. They can use this for their own purpose.<br>
+  /// API to return the shipping/delivery address which was used in the current transaction. 
+  /// Partner can get this information if needed. They can use this for their own purpose. 
   /// This API method can be used in
-  /// [CustomSheetTransactionInfoListener.onSuccess(CustomSheetPaymentInfo, String, Bundle)] callback only.<br>
+  /// [CustomSheetTransactionInfoListener.onSuccess(CustomSheetPaymentInfo, String, Bundle)] callback only. 
   ///
-  /// This api is available only with US Samsung Wallet app.<br>
+  /// This api is available only with US Samsung Wallet app. 
   /// Return Shipping address which was used in the current transaction.
   ///
 
@@ -312,12 +312,12 @@ class CustomSheetPaymentInfo {
       return null;
   }
 
-  /// API to return the shipping method which was used in the current transaction.<br>
-  /// Partner can get this information if needed. They can use this for their own purpose.<br>
+  /// API to return the shipping method which was used in the current transaction. 
+  /// Partner can get this information if needed. They can use this for their own purpose. 
   /// This API method can be used in
-  /// [CustomSheetTransactionInfoListener.onSuccess(CustomSheetPaymentInfo, String, Bundle)] callback only.<br>
+  /// [CustomSheetTransactionInfoListener.onSuccess(CustomSheetPaymentInfo, String, Bundle)] callback only. 
   ///
-  /// This api is available only with US Samsung Wallet app.<br>
+  /// This api is available only with US Samsung Wallet app. 
   /// Return Shipping method which was used in the current transaction.
   ///
 

@@ -24,7 +24,7 @@ class Address {
   Map<String,dynamic>? extraAddressInfo;
   String? email;
 
-/// Constructor to create Address.<br>
+/// Constructor to create Address. 
 ///
   Address({
      this.addressee,

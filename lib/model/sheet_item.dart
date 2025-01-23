@@ -2,7 +2,7 @@
 import 'package:samsung_pay_sdk_flutter/samsung_pay_sdk_flutter.dart';
 
 ///
-/// This class provides basic data APIs for SheetControl<br>
+/// This class provides basic data APIs for SheetControl 
 ///
 
 class SheetItem {
@@ -27,9 +27,9 @@ class SheetItem {
   ///
   /// Return SheetItemType
   ///      SheetItemType is used for distinguish SheetControls in detail.
-  ///      The possible values are :<br>
-  ///      [SheetItemType.BILLING_ADDRESS]<br>
-  ///      [SheetItemType.SHIPPING_ADDRESS]<br>
+  ///      The possible values are : 
+  ///      [SheetItemType.BILLING_ADDRESS] 
+  ///      [SheetItemType.SHIPPING_ADDRESS] 
   ///
 
   String? getSheetItemType()

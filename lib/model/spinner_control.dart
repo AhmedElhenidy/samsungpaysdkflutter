@@ -2,9 +2,9 @@ import 'dart:convert';
 import '../samsung_pay_sdk_flutter.dart';
 
 
-/// This class provides SpinnerControl on custom payment sheet.<br>
-/// SpinnerControl is used for displaying spinner option on custom payment sheet.<br>
-/// <br>
+/// This class provides SpinnerControl on custom payment sheet. 
+/// SpinnerControl is used for displaying spinner option on custom payment sheet. 
+///  
 ///
 
 class SpinnerControl extends SheetControl{
@@ -12,22 +12,22 @@ class SpinnerControl extends SheetControl{
   String? selectedItemId;
   SheetUpdatedListener? sheetUpdatedListener;
 
-  /// Constructor to create SpinnerControl.<br>
+  /// Constructor to create SpinnerControl. 
   ///
-  ///<b>[Parameters:]</b><br>
+  /// [Parameters:] 
   /// [controlId] Unique ID to represent the SpinnerControl. This ID is used to compare with other SheetControls.
   ///
   /// [title] Spinner title to display.
   ///
-  /// [sheetItemType] sheetItemType to display.<br>
-  ///       The possible values are:<br>
-  ///      [SheetItemType.SHIPPING_METHOD_SPINNER]<br>
-  ///      [SheetItemType.INSTALLMENT_SPINNER]<br>
-  ///      <br>
+  /// [sheetItemType] sheetItemType to display. 
+  ///       The possible values are: 
+  ///      [SheetItemType.SHIPPING_METHOD_SPINNER] 
+  ///      [SheetItemType.INSTALLMENT_SPINNER] 
+  ///       
   ///
-  /// <b>[Exceptions:]</b><br>
+  ///  [Exceptions:] 
   /// Throws an [ArgumentError] if title is empty.
-  /// Throws an [ArgumentError] if controlId is null or empty.<br>
+  /// Throws an [ArgumentError] if controlId is null or empty. 
   ///                            Thrown if sheetItemType is not [SheetItemType.SHIPPING_METHOD_SPINNER] or
   ///                            [SheetItemType.INSTALLMENT_SPINNER].
   ///
@@ -66,12 +66,12 @@ class SpinnerControl extends SheetControl{
   }
 
   ///
-  /// API to register a callback which is invoked when SpinnerControl is updated.<br>
-  /// <br>
+  /// API to register a callback which is invoked when SpinnerControl is updated. 
+  ///  
   /// [SheetUpdatedListener.onResult(String, CustomSheet)] is invoked when
   /// SpinnerControl is updated.
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [sheetUpdatedListener] The callback that will run.
   ///
 
@@ -91,10 +91,10 @@ class SpinnerControl extends SheetControl{
   ///
   /// API to set spinner title.
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [title] Spinner title for SpinnerControl.
   ///
-  /// <b>[Exceptions:]</b><br>
+  ///  [Exceptions:] 
   /// Throws an [ArgumentError] if spinnerTitle is empty.
   ///
   void setTitle(String title) {
@@ -117,7 +117,7 @@ class SpinnerControl extends SheetControl{
   ///
   /// API to set selected item with ID.
   ///
-  /// <b>[Exceptions:]</b><br>
+  ///  [Exceptions:] 
   /// Throws an [ArgumentError] if there is no item associated with the ID.
   ///
 
@@ -142,12 +142,12 @@ class SpinnerControl extends SheetControl{
   ///
   /// API to add item (add item in a specific location, this is optional).
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [id] Unique ID to be set.
   /// [itemText] String to be set.
-  /// [location] Location to be displayed in AmountBoxControl on custom payment sheet. For this case you need to call the method by using key: value format (location: 2).<br>
+  /// [location] Location to be displayed in AmountBoxControl on custom payment sheet. For this case you need to call the method by using key: value format (location: 2). 
   ///
-  /// <b>[Exceptions:]</b><br>
+  ///  [Exceptions:] 
   /// Throws an [ArgumentError] if the ID or value is null.
   /// Throws an [ArgumentError] if the same ID is used in Items.
   ///
@@ -168,10 +168,10 @@ class SpinnerControl extends SheetControl{
   ///
   /// API to remove item.
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [id] ID to be removed.
   ///
-  /// <b>[Exceptions:]</b><br>
+  ///  [Exceptions:] 
   /// Throws an [ArgumentError] if the ID is empty.
   /// Throws an [ArgumentError] if there is no item associated with the ID.
   ///
@@ -189,11 +189,11 @@ class SpinnerControl extends SheetControl{
   ///
   /// API to update item text.
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [id] ID to update.
   /// [text] Item String to update.
   ///
-  /// <b>[Exceptions:]</b><br>
+  ///  [Exceptions:] 
   /// Throws an [ArgumentError] if the ID is empty.
   /// Throws an [ArgumentError] if there is no item associated with the ID.
   ///
@@ -216,12 +216,12 @@ class SpinnerControl extends SheetControl{
   ///
   /// API to check the item is existing or not.
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [id] ID to be checked item.
   ///
   /// Return 'true', if there is item.
   ///
-  /// <b>[Exceptions:]</b><br>
+  ///  [Exceptions:] 
   /// Throws an [ArgumentError] if the ID is empty.
   ///
 

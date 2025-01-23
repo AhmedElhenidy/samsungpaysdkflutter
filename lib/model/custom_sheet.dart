@@ -8,7 +8,7 @@ import 'package:samsung_pay_sdk_flutter/samsung_pay_sdk_flutter.dart';
 class CustomSheet {
   List<SheetControl>? sheetControls=[];
 
-  /// Constructor to create CustomSheet.<br>
+  /// Constructor to create CustomSheet. 
   /// CustomSheet is used to contain various SheetControls.
   ///
   /// See [startInAppPayWithCustomSheet(CustomSheetPaymentInfo, PaymentManager.CustomSheetTransactionInfoListener)]
@@ -16,26 +16,26 @@ class CustomSheet {
   CustomSheet();
 
   ///
-  /// API to add SheetControl (add SheetControl in specific location).<br>
+  /// API to add SheetControl (add SheetControl in specific location). 
   ///
-  /// <b>[Parameters:]</b><br>
-  /// [sheetControl]<br>
-  ///       SheetControl to be set. <br>
-  ///       The possible values are:<br>
-  ///          [AddressControl]<br>
-  ///          [AmountBoxControl]<br>
-  ///          [PlainTextControl]<br>
-  ///      <br>
-  ///[location]<br>
-  ///        SheetControl location to be displayed on custom payment sheet.For this case you need to call the method by using key: value format (location: 2).<br>
-  ///       <br>
+  ///  [Parameters:] 
+  /// [sheetControl] 
+  ///       SheetControl to be set.  
+  ///       The possible values are: 
+  ///          [AddressControl] 
+  ///          [AmountBoxControl] 
+  ///          [PlainTextControl] 
+  ///       
+  ///[location] 
+  ///        SheetControl location to be displayed on custom payment sheet.For this case you need to call the method by using key: value format (location: 2). 
+  ///        
   ///
-  /// <b>[Exceptions]</b><br>
+  ///  [Exceptions] 
   /// Throws an [ArgumentError] if the sheetControl is null.
   /// Throws an [ArgumentError] if same ID is used in other SheetControls.
   /// Throws an [ArgumentError] if there is no data in AmountBoxControl.
   /// Throws an [ArgumentError] [AmountBoxControl.setAmountTotal(double, String)] API method should be called when AmountBoxControl is
-  ///        created or updated.<br>
+  ///        created or updated. 
   ///        If setAmountTotal() is not called, AMOUNT_TOTAL SheetItemType is not the last item in AmountBoxControl.
   ///
   void addControl(SheetControl sheetControl,{int? location}){
@@ -60,14 +60,14 @@ class CustomSheet {
   }
 
   ///
-  /// API to get SheetControl.<br>
+  /// API to get SheetControl. 
   ///
-  /// <b>[Parameters:]</b><br>
-  /// [controlId] ID to find SheetControl.<br>
+  ///  [Parameters:] 
+  /// [controlId] ID to find SheetControl. 
   ///
   /// Return SheetControl which has the controlId.
   ///
-  /// <b>[Exceptions:]</b><br>
+  ///  [Exceptions:] 
   /// Throws an [ArgumentError] if the controlId is empty.
   ///
   /// API Level 1.3
@@ -85,7 +85,7 @@ class CustomSheet {
   }
 
   ///
-  /// API to get SheetControl list.<br>
+  /// API to get SheetControl list. 
   ///
   /// Return SheetControl list.
   ///
@@ -94,20 +94,20 @@ class CustomSheet {
   }
 
   ///
-  /// API to remove SheetControl.<br>
+  /// API to remove SheetControl. 
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [sheetControl]
-  ///       SheetControl to be removed.<br>
-  ///       The possible values are:<br>
-  ///            [AddressControl]<br>
-  ///            [AmountBoxControl]<br>
-  ///            [PlainTextControl]<br>
-  ///      <br>
+  ///       SheetControl to be removed. 
+  ///       The possible values are: 
+  ///            [AddressControl] 
+  ///            [AmountBoxControl] 
+  ///            [PlainTextControl] 
+  ///       
   ///
   /// Return 'true', if successfully deleted . Otherwise, return 'false'.
   ///
-  /// <b>[exceptions]</b><br>
+  ///  [exceptions] 
   /// Throws an [ArgumentError] if the sheetControl is null.
   /// Throws an [ArgumentError] if SheetControl type is [Controltype.AMOUNTBOX] or [Controltype.ADDRESS].
   ///
@@ -125,20 +125,20 @@ class CustomSheet {
   }
 
   ///
-  /// API to update SheetControl.<br>
+  /// API to update SheetControl. 
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [sheetControl]
-  ///       SheetControl to be updated.<br>
-  ///       The possible values are:<br>
-  ///            [AddressControl]<br>
-  ///            [AmountBoxControl]<br>
-  ///            [PlainTextControl]<br>
-  ///      <br>
+  ///       SheetControl to be updated. 
+  ///       The possible values are: 
+  ///            [AddressControl] 
+  ///            [AmountBoxControl] 
+  ///            [PlainTextControl] 
+  ///       
   ///
   /// Return 'true', if successfully updated. Otherwise, return 'false'.
   ///
-  /// <b>[Exceptions:]</b><br>
+  ///  [Exceptions:] 
   /// Throws an [ArgumentError] if the sheetControl is null.
   ///
 

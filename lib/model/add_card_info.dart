@@ -69,8 +69,8 @@ class AddCardInfo{
   ///
 
   static const String PROVIDER_PAGOBANCOMAT = "PB";
-  ///  Key to represent a Samsung Pay Card for push provisioning.<br>
-  ///  If the key value is true, the current push provisioning card will have a Samsung Pay Card type in Samsung Wallet application.<br>
+  ///  Key to represent a Samsung Pay Card for push provisioning. 
+  ///  If the key value is true, the current push provisioning card will have a Samsung Pay Card type in Samsung Wallet application. 
   ///  This is only for specific issuer in UK.
   ///
 
@@ -85,7 +85,7 @@ class AddCardInfo{
   ///
 
   static const String PROVIDER_VACCINE_PASS = "VaccinePass";
-  ///  Key to send extra transit card data to Samsung Pay for Russia Virtual Troika project.<br>
+  ///  Key to send extra transit card data to Samsung Pay for Russia Virtual Troika project. 
   ///  The format of the data should be JSON string object.
   ///
 
@@ -108,7 +108,7 @@ class AddCardInfo{
 
   Map<String, dynamic>? cardDetail;
 
-  /// Constructor to create AddCardInfo instance. <br>
+  /// Constructor to create AddCardInfo instance.  
   ///
   ///  [Parameters:] 
   /// [cardType] Card type to add.
@@ -118,8 +118,8 @@ class AddCardInfo{
   /// [cardDetail] Card detail which partner wants to pass to Samsung Pay.
   ///
   ///  [Exceptions:] 
-  /// Throws an [ArgumentError] if not allowed card type is used. Or cardDetail does not contain [EXTRA_PROVISION_PAYLOAD]. <br>
-  /// Throws an [ArgumentError] if tokenizationProvider or cardDetail is empty. <br>
+  /// Throws an [ArgumentError] if not allowed card type is used. Or cardDetail does not contain [EXTRA_PROVISION_PAYLOAD].  
+  /// Throws an [ArgumentError] if tokenizationProvider or cardDetail is empty.  
   ///
 
   AddCardInfo(String cardType, String tokenizationProvider,  Map<String, dynamic> cardDetail){

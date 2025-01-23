@@ -1,24 +1,24 @@
 import '../samsung_pay_sdk_flutter.dart';
 
-/// This class provides AmountBoxControl on custom payment sheet.<br>
-/// AmountBoxControl is used for displaying amount information on custom payment sheet.<br>
+/// This class provides AmountBoxControl on custom payment sheet. 
+/// AmountBoxControl is used for displaying amount information on custom payment sheet. 
 ///
 
 class AmountBoxControl extends SheetControl{
   List<SheetItem>? items =[];
   String? currencyCode;
 
-  /// Constructor to create AmountBoxControl.<br>
+  /// Constructor to create AmountBoxControl. 
   ///
-  /// <b>[Parameters:]</b><br>
-  /// [controlId] Unique ID to represent the AmountBoxControl.<br>
-  ///             This ID is used to compare and identify the other SheetControls.<br>
+  ///  [Parameters:] 
+  /// [controlId] Unique ID to represent the AmountBoxControl. 
+  ///             This ID is used to compare and identify the other SheetControls. 
   ///
-  /// [currencyCode] Currency code to be used by Payment Gateway for payment.<br>
-  ///                ISO 4217 currency code (example: USD, KRW, EUR, and so on / All uppercase).<br>
+  /// [currencyCode] Currency code to be used by Payment Gateway for payment. 
+  ///                ISO 4217 currency code (example: USD, KRW, EUR, and so on / All uppercase). 
   ///
-  /// <b>[Exceptions:]</b><br>
-  /// Throws an [ArgumentError] if controlId is empty.<br>
+  ///  [Exceptions:] 
+  /// Throws an [ArgumentError] if controlId is empty. 
   ///
 
   AmountBoxControl(String controlId, String currencyCode) : super(controltype: Controltype.AMOUNTBOX){
@@ -80,17 +80,17 @@ class AmountBoxControl extends SheetControl{
   ///
   /// API to add item or add item (add item in a specific location, this is optional).
   ///
-  /// <b>[Parameters:]</b><br>
-  /// [id] - Unique ID to be set.<br>
-  /// [title] - Title to be displayed.<br>
-  /// [price] - Price to be set.<br>
-  /// [extraPrice] - If extraPrice is set, extraPrice is displayed instead of price on custom payment sheet.<br>
-  /// [location] - Location to be displayed in AmountBoxControl on custom payment sheet. For this case you need to call the method by using key: value format (location: 2).<br>
+  ///  [Parameters:] 
+  /// [id] - Unique ID to be set. 
+  /// [title] - Title to be displayed. 
+  /// [price] - Price to be set. 
+  /// [extraPrice] - If extraPrice is set, extraPrice is displayed instead of price on custom payment sheet. 
+  /// [location] - Location to be displayed in AmountBoxControl on custom payment sheet. For this case you need to call the method by using key: value format (location: 2). 
   ///
-  /// <b>[Exceptions:]</b><br>
-  /// Throws an [ArgumentError] if ID or title is empty.<br>
-  /// Throws an [ArgumentError] if the same ID is used in other SheetControl.<br>
-  /// Throws an [ArgumentError] if location is invalid or the same ID is used in other SheetControls.<br>
+  ///  [Exceptions:] 
+  /// Throws an [ArgumentError] if ID or title is empty. 
+  /// Throws an [ArgumentError] if the same ID is used in other SheetControl. 
+  /// Throws an [ArgumentError] if location is invalid or the same ID is used in other SheetControls. 
   ///
 
   void addItem(String id, String title, double price, String extraPrice,{int? location}) {
@@ -118,13 +118,13 @@ class AmountBoxControl extends SheetControl{
   ///
   /// API to check the item is existing or not.
   ///
-  /// <b>[Parameters:]</b><br>
-  /// [id] Unique ID to be checked.<br>
+  ///  [Parameters:] 
+  /// [id] Unique ID to be checked. 
   ///
-  /// <b>[Exceptions:]</b><br>
-  /// Throws an [ArgumentError] if ID is empty.<br>
+  ///  [Exceptions:] 
+  /// Throws an [ArgumentError] if ID is empty. 
   ///
-  /// Return 'true' or 'false'<br>
+  /// Return 'true' or 'false' 
   ///
 
   bool existItem(String id)
@@ -144,10 +144,10 @@ class AmountBoxControl extends SheetControl{
   }
 
   ///
-  /// API to return the currency code.<br>
-  /// ISO 4217 currency code (example: USD, KRW, EUR, and so on).<br>
+  /// API to return the currency code. 
+  /// ISO 4217 currency code (example: USD, KRW, EUR, and so on). 
   ///
-  /// Return Currency code.<br>
+  /// Return Currency code. 
   ///
   ///
   String? getCurrencyCode(){
@@ -157,12 +157,12 @@ class AmountBoxControl extends SheetControl{
   ///
   /// API to set the currency code.
   ///
-  /// <b>[Parameters:]</b><br>
-  /// [currencyCode] Currency code to be used by Payment Gateway for payment.<br>
-  ///                ISO 4217 currency code (example: USD, KRW, EUR, and so on / All uppercase).<br>
+  ///  [Parameters:] 
+  /// [currencyCode] Currency code to be used by Payment Gateway for payment. 
+  ///                ISO 4217 currency code (example: USD, KRW, EUR, and so on / All uppercase). 
   ///
-  /// <b>[Exceptions:]</b><br>
-  /// Throws an [ArgumentError] if the currency code is empty.<br>
+  ///  [Exceptions:] 
+  /// Throws an [ArgumentError] if the currency code is empty. 
   ///
   void setCurrencyCode(String currencyCode){
     if (currencyCode.isEmpty) {
@@ -174,13 +174,13 @@ class AmountBoxControl extends SheetControl{
   ///
   /// API to get value for ID.
   ///
-  /// <b>[Parameters:]</b><br>
-  /// id Unique ID to get value.<br>
-  /// Return double value<br>
+  ///  [Parameters:] 
+  /// id Unique ID to get value. 
+  /// Return double value 
   ///
-  /// <b>[Exceptions:]</b><br>
-  /// Throws an [ArgumentError] if the ID is empty.<br>
-  /// Throws an [ArgumentError] if the ID is invalid.<br>
+  ///  [Exceptions:] 
+  /// Throws an [ArgumentError] if the ID is empty. 
+  /// Throws an [ArgumentError] if the ID is invalid. 
   ///
   double? getValue(String id)
   {
@@ -198,12 +198,12 @@ class AmountBoxControl extends SheetControl{
   ///
   /// API to remove item.
   ///
-  /// <b>[Parameters:]</b><br>
-  /// [id] - ID of item to remove.<br>
+  ///  [Parameters:] 
+  /// [id] - ID of item to remove. 
   ///
-  /// <b>[Exceptions:]</b><br>
-  /// Throws an [ArgumentError] if the ID is empty.<br>
-  /// Throws an [ArgumentError] if the ID is invalid.<br>
+  ///  [Exceptions:] 
+  /// Throws an [ArgumentError] if the ID is empty. 
+  /// Throws an [ArgumentError] if the ID is invalid. 
   ///
 
   void removeItem(String id){
@@ -220,25 +220,25 @@ class AmountBoxControl extends SheetControl{
   ///
   /// API to set the amount total.
   ///
-  /// <b>[Parameters:]</b><br>
-  /// [price] - Price to be set.<br>
-  ///           This amount is for online payment transaction.<br>
+  ///  [Parameters:] 
+  /// [price] - Price to be set. 
+  ///           This amount is for online payment transaction. 
   ///
-  /// [displayOption] - Amount total display option. Merchant must set one of the predefined formats to display total.<br>
-  ///        The possible values are:<br>
-  ///            [SpaySdk.FORMAT_TOTAL_PRICE_ONLY]<br>
-  ///            [SpaySdk.FORMAT_TOTAL_ESTIMATED_AMOUNT]<br>
-  ///            [SpaySdk.FORMAT_TOTAL_ESTIMATED_CHARGE]<br>
-  ///            [SpaySdk.FORMAT_TOTAL_ESTIMATED_FARE]<br>
-  ///            [SpaySdk.FORMAT_TOTAL_FREE_TEXT_ONLY]<br>
-  ///            [SpaySdk.FORMAT_TOTAL_AMOUNT_PENDING]<br>
-  ///            [SpaySdk.FORMAT_TOTAL_AMOUNT_PENDING_TEXT_ONLY]<br>
-  ///            [SpaySdk.FORMAT_TOTAL_PENDING]<br>
-  ///            [SpaySdk.FORMAT_TOTAL_PENDING_TEXT_ONLY]<br>
-  ///            [SpaySdk.FORMAT_TOTAL_UP_TO_AMOUNT]<br>
+  /// [displayOption] - Amount total display option. Merchant must set one of the predefined formats to display total. 
+  ///        The possible values are: 
+  ///            [SpaySdk.FORMAT_TOTAL_PRICE_ONLY] 
+  ///            [SpaySdk.FORMAT_TOTAL_ESTIMATED_AMOUNT] 
+  ///            [SpaySdk.FORMAT_TOTAL_ESTIMATED_CHARGE] 
+  ///            [SpaySdk.FORMAT_TOTAL_ESTIMATED_FARE] 
+  ///            [SpaySdk.FORMAT_TOTAL_FREE_TEXT_ONLY] 
+  ///            [SpaySdk.FORMAT_TOTAL_AMOUNT_PENDING] 
+  ///            [SpaySdk.FORMAT_TOTAL_AMOUNT_PENDING_TEXT_ONLY] 
+  ///            [SpaySdk.FORMAT_TOTAL_PENDING] 
+  ///            [SpaySdk.FORMAT_TOTAL_PENDING_TEXT_ONLY] 
+  ///            [SpaySdk.FORMAT_TOTAL_UP_TO_AMOUNT] 
   ///
-  /// <b>[Exceptions:]</b><br>
-  /// Throws an [ArgumentError] if displayOption is empty.<br>
+  ///  [Exceptions:] 
+  /// Throws an [ArgumentError] if displayOption is empty. 
 
   void setAmountTotal(double price, String displayOption){
     if(displayOption.isEmpty){
@@ -256,13 +256,13 @@ class AmountBoxControl extends SheetControl{
   ///
   /// API to update item title.
   ///
-  /// <b>[Parameters:]</b><br>
-  /// [id] - Unique ID of item to update.<br>
-  /// [title] - Title to be set.<br>
+  ///  [Parameters:] 
+  /// [id] - Unique ID of item to update. 
+  /// [title] - Title to be set. 
   ///
-  /// <b>[Exceptions:]</b><br>
-  /// Throws an [ArgumentError] if the ID is empty.<br>
-  /// Throws an [ArgumentError] if there are no items associated with the ID.<br>
+  ///  [Exceptions:] 
+  /// Throws an [ArgumentError] if the ID is empty. 
+  /// Throws an [ArgumentError] if there are no items associated with the ID. 
   ///
 
   void updateTitle(String id, String title){
@@ -280,19 +280,19 @@ class AmountBoxControl extends SheetControl{
   }
 
   ///
-  /// API to update price.<br>
+  /// API to update price. 
   ///
-  /// currencyCode + price will appear on custom payment sheet.<br>
-  /// If price is set, then extraPrice is initialized empty value,<br>
-  /// because extraPrice appear if extraPrice is not empty.<br>
+  /// currencyCode + price will appear on custom payment sheet. 
+  /// If price is set, then extraPrice is initialized empty value, 
+  /// because extraPrice appear if extraPrice is not empty. 
   ///
-  /// <b>[Parameters:]</b><br>
-  /// [id] - Unique ID of item to update.<br>
-  /// [price] - Price to be set.<br>
+  ///  [Parameters:] 
+  /// [id] - Unique ID of item to update. 
+  /// [price] - Price to be set. 
   ///
-  /// <b>[Exceptions:]</b><br>
-  /// Throws an [ArgumentError] if the ID is empty.<br>
-  /// Throws an [ArgumentError] if there are no items associated with the ID.<br>
+  ///  [Exceptions:] 
+  /// Throws an [ArgumentError] if the ID is empty. 
+  /// Throws an [ArgumentError] if there are no items associated with the ID. 
   ///
 
   void updateValue(String id, double price,{String? extraPrice}){

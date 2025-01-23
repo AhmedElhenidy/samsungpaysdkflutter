@@ -1,12 +1,12 @@
 import 'package:samsung_pay_sdk_flutter/samsung_pay_sdk_flutter.dart';
 
-/// This class provides AddressControl on custom payment sheet.<br>
+/// This class provides AddressControl on custom payment sheet. 
 ///
-/// AddressControl is used for displaying billing address or shipping address<br>
-/// on custom payment sheet from "My Info" menu option on Samsung Wallet app.<br>
-/// <br>
-/// [Caution]: AddressControl must be returned in onResult() on SheetUpdatedListener<br>
-///            to remove progress bar on custom payment sheet.<br>
+/// AddressControl is used for displaying billing address or shipping address 
+/// on custom payment sheet from "My Info" menu option on Samsung Wallet app. 
+///  
+/// [Caution]: AddressControl must be returned in onResult() on SheetUpdatedListener 
+///            to remove progress bar on custom payment sheet. 
 ///
 
 class AddressControl extends SheetControl{
@@ -18,26 +18,26 @@ class AddressControl extends SheetControl{
   int? errorCode;
   SheetUpdatedListener? sheetUpdatedListener;
 
-  /// Constructor to create AddressControl.<br>
+  /// Constructor to create AddressControl. 
   ///
-  /// <b>[Parameters:]</b><br>
-  ///  [controlId] Unique ID to represent the AddressControl.<br>
-  ///              This ID is used to compare and identify the other SheetControls.<br>
+  ///  [Parameters:] 
+  ///  [controlId] Unique ID to represent the AddressControl. 
+  ///              This ID is used to compare and identify the other SheetControls. 
   ///
-  /// [sheetItemType] SheetItemType represents billing address or shipping address.<br>
-  ///      <br>
-  ///      The possible values are:<br>
-  ///        [SheetItemType.BILLING_ADDRESS]<br>
-  ///        [SheetItemType.ZIP_ONLY_ADDRESS]<br>
-  ///        [SheetItemType.SHIPPING_ADDRESS]<br>
-  ///      It is possible to show only one billing AddressControl and one shipping AddressControl.<br>
+  /// [sheetItemType] SheetItemType represents billing address or shipping address. 
+  ///       
+  ///      The possible values are: 
+  ///        [SheetItemType.BILLING_ADDRESS] 
+  ///        [SheetItemType.ZIP_ONLY_ADDRESS] 
+  ///        [SheetItemType.SHIPPING_ADDRESS] 
+  ///      It is possible to show only one billing AddressControl and one shipping AddressControl. 
   ///
-  /// <b>[Exceptions:]</b><br>
-  /// Throws an [ArgumentError] if controlId is null or empty.<br>
-  /// Throws an [ArgumentError] if sheetItemType is not<br>
-  ///         [sheetItemType.BILLING_ADDRESS] or<br>
-  ///         [sheetItemType.ZIP_ONLY_ADDRESS] or<br>
-  ///         [sheetItemType.SHIPPING_ADDRESS]<br>
+  ///  [Exceptions:] 
+  /// Throws an [ArgumentError] if controlId is null or empty. 
+  /// Throws an [ArgumentError] if sheetItemType is not 
+  ///         [sheetItemType.BILLING_ADDRESS] or 
+  ///         [sheetItemType.ZIP_ONLY_ADDRESS] or 
+  ///         [sheetItemType.SHIPPING_ADDRESS] 
   ///
   ///
   AddressControl(String controlId, String sheetItemType): super(controltype: Controltype.ADDRESS){
@@ -50,7 +50,7 @@ class AddressControl extends SheetControl{
   }
 
   ///
-  /// API to get address. <br>
+  /// API to get address.  
   ///
   /// Return The address of the AddressControl.
   ///
@@ -60,15 +60,15 @@ class AddressControl extends SheetControl{
   }
 
   ///
-  /// API to set address. <br>
+  /// API to set address.  
   ///
-  /// <b>[Parameters:]</b><br>
-  /// [address] Address to be set. <br>
-  ///      <br>
-  ///       The possible values are:<br>
-  ///         [SheetItemType.BILLING_ADDRESS]<br>
-  ///         [SheetItemType.SHIPPING_ADDRESS]<br>
-  ///      <br>
+  ///  [Parameters:] 
+  /// [address] Address to be set.  
+  ///       
+  ///       The possible values are: 
+  ///         [SheetItemType.BILLING_ADDRESS] 
+  ///         [SheetItemType.SHIPPING_ADDRESS] 
+  ///       
   ///
   ///
   void setAddress(Address address){
@@ -76,7 +76,7 @@ class AddressControl extends SheetControl{
   }
 
   ///
-  /// API to get address title. <br>
+  /// API to get address title.  
   ///
   /// Return Title of the AddressControl.
   ///
@@ -86,14 +86,14 @@ class AddressControl extends SheetControl{
   }
 
   ///
-  /// API to get address type. <br>
+  /// API to get address type.  
   ///
-  /// Return SheetItemType of the AddressControl.<br>
-  ///      <br>
-  ///      The returned value can be one of the following SheetItemTypes:<br>
-  ///       [SheetItemType.BILLING_ADDRESS]<br>
-  ///       [SheetItemType.SHIPPING_ADDRESS]<br>
-  ///      <br>
+  /// Return SheetItemType of the AddressControl. 
+  ///       
+  ///      The returned value can be one of the following SheetItemTypes: 
+  ///       [SheetItemType.BILLING_ADDRESS] 
+  ///       [SheetItemType.SHIPPING_ADDRESS] 
+  ///       
   ///
   ///
   SheetItemType? getAddressType(){
@@ -105,14 +105,14 @@ class AddressControl extends SheetControl{
   }
 
   ///
-  /// API to set address title. <br>
+  /// API to set address title.  
   ///
-  /// <b>[Parameters:]</b><br>
-  /// [title] Title of the AddressControl.<br>
-  ///         If title is empty like "", then default title is displayed.<br>
+  ///  [Parameters:] 
+  /// [title] Title of the AddressControl. 
+  ///         If title is empty like "", then default title is displayed. 
   ///
-  /// <b>[Exceptions:]</b><br>
-  /// [Throws an [ArgumentError] if title is null.<br>
+  ///  [Exceptions:] 
+  /// [Throws an [ArgumentError] if title is null. 
   ///
   ///
   void setAddressTitle(String title){
@@ -120,16 +120,16 @@ class AddressControl extends SheetControl{
   }
 
   ///
-  /// API to get display option of [SheetItemType.SHIPPING_ADDRESS] on custom payment sheet. <br>
+  /// API to get display option of [SheetItemType.SHIPPING_ADDRESS] on custom payment sheet.  
   ///
-  /// Return Current display option of shipping address on custom payment sheet<br>
-  ///      <br>
-  ///      The returned value will be a combination of below constants:<br>
-  ///       [SpaySdk.DISPLAY_OPTION_ADDRESSEE]<br>
-  ///       [SpaySdk.DISPLAY_OPTION_ADDRESS]<br>
-  ///       [SpaySdk.DISPLAY_OPTION_PHONE_NUMBER]<br>
-  ///       [SpaySdk.DISPLAY_OPTION_EMAIL]<br>
-  ///      <br>
+  /// Return Current display option of shipping address on custom payment sheet 
+  ///       
+  ///      The returned value will be a combination of below constants: 
+  ///       [SpaySdk.DISPLAY_OPTION_ADDRESSEE] 
+  ///       [SpaySdk.DISPLAY_OPTION_ADDRESS] 
+  ///       [SpaySdk.DISPLAY_OPTION_PHONE_NUMBER] 
+  ///       [SpaySdk.DISPLAY_OPTION_EMAIL] 
+  ///       
   ///
 
   int? getDisplayOption(){
@@ -137,22 +137,22 @@ class AddressControl extends SheetControl{
   }
 
   ///
-  /// API to set display option of  [SheetItemType.SHIPPING_ADDRESS] on custom payment sheet. <br>
+  /// API to set display option of  [SheetItemType.SHIPPING_ADDRESS] on custom payment sheet.  
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [displayOption]
-  ///      Display option for shipping address on custom payment sheet<br>
-  ///      <br>
+  ///      Display option for shipping address on custom payment sheet 
+  ///       
   ///      If displayOption is not set, then default addressControl is displayed on custom payment sheet.
-  ///      <br><br>
-  ///      The possible value is combination of below constants:<br>
-  ///      [SpaySdk.DISPLAY_OPTION_ADDRESSEE]<br>
-  ///      [SpaySdk.DISPLAY_OPTION_ADDRESS]<br>
-  ///      [SpaySdk.DISPLAY_OPTION_PHONE_NUMBER]<br>
-  ///      [SpaySdk.DISPLAY_OPTION_EMAIL]<br>
+  ///        
+  ///      The possible value is combination of below constants: 
+  ///      [SpaySdk.DISPLAY_OPTION_ADDRESSEE] 
+  ///      [SpaySdk.DISPLAY_OPTION_ADDRESS] 
+  ///      [SpaySdk.DISPLAY_OPTION_PHONE_NUMBER] 
+  ///      [SpaySdk.DISPLAY_OPTION_EMAIL] 
   ///
-  /// <b>[Exceptions:]</b><br>
-  /// Throws an [ArgumentError] if [SheetItemType.SHIPPING_ADDRESS] is not set in constructor.<br>
+  ///  [Exceptions:] 
+  /// Throws an [ArgumentError] if [SheetItemType.SHIPPING_ADDRESS] is not set in constructor. 
   ///
 
   void setDisplayOption(int displayOption){
@@ -164,16 +164,16 @@ class AddressControl extends SheetControl{
   }
 
   ///
-  /// API to get error code of the AddressControl. <br>
+  /// API to get error code of the AddressControl.  
   ///
   /// Return The error code.
-  ///      <br>
-  ///      The returned value can be one of the following error codes:<br>
-  ///        [SpaySdk.ERROR_BILLING_ADDRESS_INVALID]<br>
-  ///        [SpaySdk.ERROR_BILLING_ADDRESS_NOT_EXIST]<br>
-  ///        [SpaySdk.ERROR_SHIPPING_ADDRESS_INVALID]<br>
-  ///        [SpaySdk.ERROR_SHIPPING_ADDRESS_UNABLE_TO_SHIP]<br>
-  ///        [SpaySdk.ERROR_SHIPPING_ADDRESS_NOT_EXIST]<br>
+  ///       
+  ///      The returned value can be one of the following error codes: 
+  ///        [SpaySdk.ERROR_BILLING_ADDRESS_INVALID] 
+  ///        [SpaySdk.ERROR_BILLING_ADDRESS_NOT_EXIST] 
+  ///        [SpaySdk.ERROR_SHIPPING_ADDRESS_INVALID] 
+  ///        [SpaySdk.ERROR_SHIPPING_ADDRESS_UNABLE_TO_SHIP] 
+  ///        [SpaySdk.ERROR_SHIPPING_ADDRESS_NOT_EXIST] 
   ///
   ///
   int? getErrorCode(){
@@ -181,16 +181,16 @@ class AddressControl extends SheetControl{
   }
 
   ///
-  /// API to set error code of the AddressControl. <br>
+  /// API to set error code of the AddressControl.  
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [errorCode]
-  ///  The possible values are:<br>
-  ///             [SpaySdk.ERROR_BILLING_ADDRESS_INVALID]<br>
-  ///              [SpaySdk.ERROR_BILLING_ADDRESS_NOT_EXIST]<br>
-  ///              [SpaySdk.ERROR_SHIPPING_ADDRESS_INVALID]<br>
-  ////             [SpaySdk.ERROR_SHIPPING_ADDRESS_UNABLE_TO_SHIP]<br>
-  ///              [SpaySdk.ERROR_SHIPPING_ADDRESS_NOT_EXIST]<br>
+  ///  The possible values are: 
+  ///             [SpaySdk.ERROR_BILLING_ADDRESS_INVALID] 
+  ///              [SpaySdk.ERROR_BILLING_ADDRESS_NOT_EXIST] 
+  ///              [SpaySdk.ERROR_SHIPPING_ADDRESS_INVALID] 
+  ////             [SpaySdk.ERROR_SHIPPING_ADDRESS_UNABLE_TO_SHIP] 
+  ///              [SpaySdk.ERROR_SHIPPING_ADDRESS_NOT_EXIST] 
   ///
   ///
   void setErrorCode(int errorCode){

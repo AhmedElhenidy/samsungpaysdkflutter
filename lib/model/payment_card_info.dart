@@ -2,9 +2,9 @@
 import 'package:samsung_pay_sdk_flutter/samsung_pay_sdk_flutter.dart';
 
 ///
-/// This class provides card information related to payment operations.<br>
+/// This class provides card information related to payment operations. 
 ///
-/// See [requestCardInfo(PaymentCardInfo paymentCardInfo, CardInfoListener cardInfoListener)]<br>
+/// See [requestCardInfo(PaymentCardInfo paymentCardInfo, CardInfoListener cardInfoListener)] 
 ///
 
 class PaymentCardInfo {
@@ -14,7 +14,7 @@ class PaymentCardInfo {
   List<Brand>? requestFilter=[];
 
 
-  /// Constructor to create PaymentCardInfo.<br>
+  /// Constructor to create PaymentCardInfo. 
   PaymentCardInfo(){}
 
   ///@nodoc

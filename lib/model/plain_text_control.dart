@@ -1,7 +1,7 @@
 import '../samsung_pay_sdk_flutter.dart';
 
 
-/// This class provides PlainTextControl on custom payment sheet.<br>
+/// This class provides PlainTextControl on custom payment sheet. 
 /// This control is used for displaying 2-line text with title or 1-line text without title.
 ///
 
@@ -12,9 +12,9 @@ class PlainTextControl extends SheetControl{
     setControlId(controlId);
   }
 
-  /// Constructor to create PlainTextControl.<br>
+  /// Constructor to create PlainTextControl. 
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [controlId]
   ///      Unique ID to represent the PlainTextControl.
   ///      This ID is used to compare and identify the other SheetControls.
@@ -28,7 +28,7 @@ class PlainTextControl extends SheetControl{
 
   /// API to set the title and text.
   ///
-  /// <b>[Parameters:]</b><br>
+  ///  [Parameters:] 
   /// [title] Title to set.
   /// [text] Text to set.
   ///
