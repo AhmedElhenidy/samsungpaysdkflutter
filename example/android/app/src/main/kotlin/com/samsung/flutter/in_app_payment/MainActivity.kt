@@ -1,4 +1,4 @@
-package com.samsung.flutter.sdk.samsungpay.v2.samsung_pay_sdk_flutter_example
+package com.samsung.flutter.in_app_payment
 
 import io.flutter.embedding.android.FlutterActivity
 

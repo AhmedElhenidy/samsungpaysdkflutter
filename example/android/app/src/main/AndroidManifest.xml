@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="Sample Issuer"
-        android:name="androidx.multidex.MultiDexApplication"
+        android:label="In-App Payment"
+        android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
@@ -29,8 +29,10 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+        <!--Configure the API level-->
         <meta-data
             android:name="spay_sdk_api_level"
-            android:value="2.18" />
+            android:value="2.19" />
     </application>
 </manifest>
