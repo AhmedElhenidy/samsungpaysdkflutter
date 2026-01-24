@@ -1,3 +1,7 @@
+## 1.0.4
+*  dependency upgrade.
+*  Pass static analysis.
+* 
 ## 1.0.3
 *  Migrate example app to gradle 8.
 *  Code enhance.
