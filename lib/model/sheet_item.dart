@@ -91,18 +91,24 @@ class SheetItem {
   ///@nodoc
   Map<String, dynamic> toJson() {
     Map<String,dynamic> sheetItemJson= Map();
-    if(id != null && id!.isNotEmpty)
-      sheetItemJson["id"]= id;
-    if(title != null)
+    if(id != null && id!.isNotEmpty) {
+      sheetItemJson["id"] = id;
+    }
+    if(title != null) {
       sheetItemJson["title"] = title;
-    if(sValue != null && sValue!.isNotEmpty)
+    }
+    if(sValue != null && sValue!.isNotEmpty) {
       sheetItemJson["sValue"] = sValue;
-    if(dValue != null)
+    }
+    if(dValue != null) {
       sheetItemJson["dValue"] = dValue;
-    if(sheetItemType != null)
+    }
+    if(sheetItemType != null) {
       sheetItemJson["sheetItemType"] = sheetItemType;
-    if(extraValue != null)
+    }
+    if(extraValue != null) {
       sheetItemJson["extraValue"] = extraValue;
+    }
     return sheetItemJson;
   }
 }

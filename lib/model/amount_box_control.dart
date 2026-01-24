@@ -137,8 +137,9 @@ class AmountBoxControl extends SheetControl{
     }
     else {
       final index = items!.indexWhere((items) => items.id == id);
-      if (index==-1)
+      if (index==-1) {
         return false;
+      }
       return true;
     }
   }

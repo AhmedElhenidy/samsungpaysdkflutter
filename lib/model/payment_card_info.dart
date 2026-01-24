@@ -20,22 +20,23 @@ class PaymentCardInfo {
   ///@nodoc
   factory PaymentCardInfo.fromJson(Map<String, dynamic> json){
     late Brand brandFromJson;
-    if(json["brand"].toString() == Brand.VISA.name)
+    if(json["brand"].toString() == Brand.VISA.name) {
       brandFromJson = Brand.VISA;
-    else if(json["brand"].toString() == Brand.MASTERCARD.name)
-      brandFromJson= Brand.MASTERCARD;
-    else if(json["brand"].toString() == Brand.AMERICANEXPRESS.name)
+    } else if(json["brand"].toString() == Brand.MASTERCARD.name) {
+      brandFromJson = Brand.MASTERCARD;
+    } else if(json["brand"].toString() == Brand.AMERICANEXPRESS.name) {
       brandFromJson = Brand.AMERICANEXPRESS;
-    else if(json["brand"].toString() == Brand.CHINAUNIONPAY.name)
+    } else if(json["brand"].toString() == Brand.CHINAUNIONPAY.name) {
       brandFromJson = Brand.CHINAUNIONPAY;
-    else if(json["brand"].toString() == Brand.DISCOVER.name)
+    } else if(json["brand"].toString() == Brand.DISCOVER.name) {
       brandFromJson = Brand.DISCOVER;
-    else if(json["brand"].toString() == Brand.ECI.name)
+    } else if(json["brand"].toString() == Brand.ECI.name) {
       brandFromJson = Brand.ECI;
-    else if(json["brand"].toString() == Brand.PAGOBANCOMAT.name)
+    } else if(json["brand"].toString() == Brand.PAGOBANCOMAT.name) {
       brandFromJson = Brand.PAGOBANCOMAT;
-    else if(json["brand"].toString() == Brand.OCTOPUS.name)
+    } else if(json["brand"].toString() == Brand.OCTOPUS.name) {
       brandFromJson = Brand.OCTOPUS;
+    }
 
     PaymentCardInfo paymentCardInfo = PaymentCardInfo();
     paymentCardInfo.brand = brandFromJson;

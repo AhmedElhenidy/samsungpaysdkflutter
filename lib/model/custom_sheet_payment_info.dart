@@ -335,16 +335,22 @@ class CustomSheetPaymentInfo {
     customSheetPaymentInfo.orderNumber = json["orderNumber"].toString();
     if(json["addressInPaymentSheet"] == AddressInPaymentSheet.DO_NOT_SHOW.name) {
       customSheetPaymentInfo.addressInPaymentSheet = AddressInPaymentSheet.DO_NOT_SHOW;
-    } else if(json["addressInPaymentSheet"] == AddressInPaymentSheet.NEED_BILLING_AND_SHIPPING.name)
-      customSheetPaymentInfo.addressInPaymentSheet = AddressInPaymentSheet.NEED_BILLING_AND_SHIPPING;
-    else if(json["addressInPaymentSheet"] == AddressInPaymentSheet.NEED_BILLING_SEND_SHIPPING.name)
-      customSheetPaymentInfo.addressInPaymentSheet == AddressInPaymentSheet.NEED_BILLING_SEND_SHIPPING;
-    else if(json["addressInPaymentSheet"] == AddressInPaymentSheet.NEED_BILLING_SPAY.name)
-      customSheetPaymentInfo.addressInPaymentSheet == AddressInPaymentSheet.NEED_BILLING_SPAY;
-    else if(json["addressInPaymentSheet"] == AddressInPaymentSheet.NEED_SHIPPING_SPAY.name)
-      customSheetPaymentInfo.addressInPaymentSheet == AddressInPaymentSheet.NEED_SHIPPING_SPAY;
-    else if(json["addressInPaymentSheet"] == AddressInPaymentSheet.SEND_SHIPPING.name)
-      customSheetPaymentInfo.addressInPaymentSheet == AddressInPaymentSheet.SEND_SHIPPING;
+    } else if(json["addressInPaymentSheet"] == AddressInPaymentSheet.NEED_BILLING_AND_SHIPPING.name) {
+      customSheetPaymentInfo.addressInPaymentSheet =
+          AddressInPaymentSheet.NEED_BILLING_AND_SHIPPING;
+    } else if(json["addressInPaymentSheet"] == AddressInPaymentSheet.NEED_BILLING_SEND_SHIPPING.name) {
+      customSheetPaymentInfo.addressInPaymentSheet ==
+          AddressInPaymentSheet.NEED_BILLING_SEND_SHIPPING;
+    } else if(json["addressInPaymentSheet"] == AddressInPaymentSheet.NEED_BILLING_SPAY.name) {
+      customSheetPaymentInfo.addressInPaymentSheet ==
+          AddressInPaymentSheet.NEED_BILLING_SPAY;
+    } else if(json["addressInPaymentSheet"] == AddressInPaymentSheet.NEED_SHIPPING_SPAY.name) {
+      customSheetPaymentInfo.addressInPaymentSheet ==
+          AddressInPaymentSheet.NEED_SHIPPING_SPAY;
+    } else if(json["addressInPaymentSheet"] == AddressInPaymentSheet.SEND_SHIPPING.name) {
+      customSheetPaymentInfo.addressInPaymentSheet ==
+          AddressInPaymentSheet.SEND_SHIPPING;
+    }
 
     List<Brand> brandlist =[];
     if(json["allowedCardBrand"] == null){
@@ -354,20 +360,21 @@ class CustomSheetPaymentInfo {
       for(var brand in json["allowedCardBrand"]){
         if(brand == Brand.VISA.name) {
           brandlist.add(Brand.VISA);
-        } else if(brand == Brand.MASTERCARD.name)
+        } else if(brand == Brand.MASTERCARD.name) {
           brandlist.add(Brand.MASTERCARD);
-        else if(brand == Brand.AMERICANEXPRESS.name)
+        } else if(brand == Brand.AMERICANEXPRESS.name) {
           brandlist.add(Brand.AMERICANEXPRESS);
-        else if(brand == Brand.CHINAUNIONPAY.name)
+        } else if(brand == Brand.CHINAUNIONPAY.name) {
           brandlist.add(Brand.CHINAUNIONPAY);
-        else if(brand == Brand.DISCOVER.name)
+        } else if(brand == Brand.DISCOVER.name) {
           brandlist.add(Brand.DISCOVER);
-        else if(brand == Brand.ECI.name)
+        } else if(brand == Brand.ECI.name) {
           brandlist.add(Brand.ECI);
-        else if(brand == Brand.PAGOBANCOMAT.name)
+        } else if(brand == Brand.PAGOBANCOMAT.name) {
           brandlist.add(Brand.PAGOBANCOMAT);
-        else if(brand == Brand.OCTOPUS.name)
+        } else if(brand == Brand.OCTOPUS.name) {
           brandlist.add(Brand.OCTOPUS);
+        }
       }
       customSheetPaymentInfo.allowedCardBrand =  brandlist;
     }
@@ -398,12 +405,16 @@ class CustomSheetPaymentInfo {
     if(allowedCardBrand != null){
       customSheetPaymentInfoJson["allowedCardBrand"] = allowedCardBrand?.map((x) => x.name).toList();
     }
-    if(isCardHolderNameRequired!= null)
-      customSheetPaymentInfoJson["isCardHolderNameRequired"] = isCardHolderNameRequired;
-    if(isRecurring != null)
+    if(isCardHolderNameRequired!= null) {
+      customSheetPaymentInfoJson["isCardHolderNameRequired"] =
+          isCardHolderNameRequired;
+    }
+    if(isRecurring != null) {
       customSheetPaymentInfoJson["isRecurring"] = isRecurring;
-    if(merchantCountryCode!= null)
+    }
+    if(merchantCountryCode!= null) {
       customSheetPaymentInfoJson["merchantCountryCode"] = merchantCountryCode;
+    }
     customSheetPaymentInfoJson["customSheet"] = customSheet.toJson();
     if(extraPaymentInfo != null){
       customSheetPaymentInfoJson["extraPaymentInfo"] = extraPaymentInfo;
