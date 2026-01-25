@@ -40,7 +40,13 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   List<Brand> get brandList {
-    List<Brand> brandList = [Brand.VISA, Brand.MASTERCARD, Brand.AMERICANEXPRESS, Brand.DISCOVER];
+    List<Brand> brandList = [
+      Brand.VISA,
+      Brand.MASTERCARD,
+      Brand.AMERICANEXPRESS,
+      Brand.DISCOVER,
+      Brand.MADA, 
+    ];
     return brandList;
   }
 
