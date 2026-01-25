@@ -8,7 +8,7 @@ import 'dart:developer' as developer;
 class MethodChannelSamsungPaySdkFlutter extends SamsungPaySdkFlutterPlatform {
   /// The method channel used to interact with the native platform.
 
-  String TAG = "SPAYSDKFLUTTERPLUGIN:MethodChannel";
+  String tag = "SPAYSDKFLUTTERPLUGIN:MethodChannel";
   @visibleForTesting
   final methodChannel = const MethodChannel('samsung_pay_sdk_flutter');
 
@@ -26,32 +26,32 @@ class MethodChannelSamsungPaySdkFlutter extends SamsungPaySdkFlutterPlatform {
   ///@nodoc
   Future<dynamic> dispatchCallback(MethodCall call) async {
     Map<String, dynamic> argumentData= jsonDecode(call.arguments.toString());
-    developer.log(name: TAG,jsonEncode(argumentData));
-    developer.log(name: TAG, 'dispatchCallback()');
+    developer.log(name: tag,jsonEncode(argumentData));
+    developer.log(name: tag, 'dispatchCallback()');
     if(call.method == "samsungPayStatusFlutter"){
       if(argumentData["event"]  == "onSuccess"){
-        developer.log(name: TAG, 'method: samsungPayStatusFlutter, event: onSuccess');
+        developer.log(name: tag, 'method: samsungPayStatusFlutter, event: onSuccess');
         return statusListener?.onSuccess(argumentData['status'].toString(), argumentData['bundle']);
       }else{
-        developer.log(name: TAG, 'method: samsungPayStatusFlutter, event: onFail');
+        developer.log(name: tag, 'method: samsungPayStatusFlutter, event: onFail');
         return statusListener?.onFail(argumentData["status"].toString(),argumentData["bundle"]);
       }
     }
     else if(call.method == "addCardFlutter"){
       if(argumentData["event"].toString()  == "onSuccess"){
-        developer.log(name: TAG, 'method: addCardFlutter, event: onSuccess');
+        developer.log(name: tag, 'method: addCardFlutter, event: onSuccess');
         addCardListener?.onSuccess(argumentData['status'].toString(), argumentData['card']);
       }else if(argumentData["event"].toString()  == "onFail"){
-        developer.log(name: TAG, 'method: addCardFlutter, event: onFail');
+        developer.log(name: tag, 'method: addCardFlutter, event: onFail');
         addCardListener?.onFail(argumentData["status"].toString(),argumentData["bundle"]);
       }else{
-        developer.log(name: TAG, 'method: addCardFlutter, event: onProgress');
+        developer.log(name: tag, 'method: addCardFlutter, event: onProgress');
         addCardListener?.onProgress(argumentData['currentCount'].toString(),argumentData['totalCount'].toString(),argumentData['bundle']);
       }
     }
     else if(call.method == "getAllCardsFlutter"){
       if(argumentData["event"].toString()  == "onSuccess"){
-        developer.log(name: TAG, 'method: getAllCardsFlutter, event: onSuccess');
+        developer.log(name: tag, 'method: getAllCardsFlutter, event: onSuccess');
         try{
           List<WalletCard> cardList = (argumentData["cardList"] as List).map((e) => WalletCard.fromJson(e)).toList();
           // print(cardList.elementAt(0).cardInfo.cardType);
@@ -62,13 +62,13 @@ class MethodChannelSamsungPaySdkFlutter extends SamsungPaySdkFlutterPlatform {
           }
         }
       }else{
-        developer.log(name: TAG, 'method: getAllCardsFlutter, event: onFail');
+        developer.log(name: tag, 'method: getAllCardsFlutter, event: onFail');
         getCardListener?.onFail(argumentData["status"].toString(),argumentData["bundle"]);
       }
     }
     else if(call.method == "requestCardInfoFlutter"){
       if(argumentData["event"].toString()  == "onResult"){
-        developer.log(name: TAG, 'method: requestCardInfoFlutter, event: onResult');
+        developer.log(name: tag, 'method: requestCardInfoFlutter, event: onResult');
         try{
           List<PaymentCardInfo> cardlist = (argumentData["cardList"] as List).map((e) => PaymentCardInfo.fromJson(e)).toList();
           cardInfoListener?.onResult(cardlist);
@@ -78,12 +78,12 @@ class MethodChannelSamsungPaySdkFlutter extends SamsungPaySdkFlutterPlatform {
           }
         }
       }else{
-        developer.log(name:TAG, 'method: requestCardInfoFlutter, event: onFailure');
+        developer.log(name:tag, 'method: requestCardInfoFlutter, event: onFailure');
         cardInfoListener?.onFailure(argumentData["errorCode"].toString(),argumentData["bundle"]);
       }
     }else if(call.method == "setSheetUpdatedListenerFlutter"){
       if(argumentData["event"].toString() == "onResult"){
-        developer.log(name: TAG, 'method: setSheetUpdatedListenerFlutter, event: onResult');
+        developer.log(name: tag, 'method: setSheetUpdatedListenerFlutter, event: onResult');
         try{
           CustomSheet customSheet = CustomSheet.fromJson(argumentData["customSheet"], sheetUpdatedListener);
           sheetUpdatedListener?.onResult(argumentData["updatedControlId"].toString(),customSheet);
@@ -93,7 +93,7 @@ class MethodChannelSamsungPaySdkFlutter extends SamsungPaySdkFlutterPlatform {
       }
     }else if(call.method == "startInAppPayWithCustomSheetFlutter"){
       if(argumentData["event"].toString() == "onCardInfoUpdated"){
-        developer.log(name: TAG, 'method: startInAppPayWithCustomSheetFlutter, event: onCardInfoUpdated');
+        developer.log(name: tag, 'method: startInAppPayWithCustomSheetFlutter, event: onCardInfoUpdated');
         try{
           PaymentCardInfo selectedCardInfo = PaymentCardInfo.fromJson(argumentData["selectedCardInfo"]);
           CustomSheet customSheet = CustomSheet.fromJson(argumentData["customSheet"], sheetUpdatedListener);
@@ -102,7 +102,7 @@ class MethodChannelSamsungPaySdkFlutter extends SamsungPaySdkFlutterPlatform {
           print(e);
         }
       }else if(argumentData["event"].toString() == "onSuccess"){
-        developer.log(name: TAG, 'method: startInAppPayWithCustomSheetFlutter, event: onSuccess');
+        developer.log(name: tag, 'method: startInAppPayWithCustomSheetFlutter, event: onSuccess');
         try{
           CustomSheetPaymentInfo response = CustomSheetPaymentInfo.fromJson(argumentData["response"], sheetUpdatedListener);
           customSheetTransactionInfoListener?.onSuccess(response, argumentData["paymentCredential"].toString(),argumentData["extraPaymentData"]);
@@ -110,7 +110,7 @@ class MethodChannelSamsungPaySdkFlutter extends SamsungPaySdkFlutterPlatform {
           print(e);
         }
       }else if(argumentData["event"].toString() == "onFailure"){
-        developer.log(name: TAG, 'method: startInAppPayWithCustomSheetFlutter, event: onFailure');
+        developer.log(name: tag, 'method: startInAppPayWithCustomSheetFlutter, event: onFailure');
         customSheetTransactionInfoListener?.onFail(argumentData["errorCode"].toString(),argumentData["errorData"]);
       }
     }
@@ -121,51 +121,51 @@ class MethodChannelSamsungPaySdkFlutter extends SamsungPaySdkFlutterPlatform {
 
   @override
   Future<bool?> initSamsungPay(PartnerInfo? partnerInfo) async {
-    developer.log(name: TAG, 'initSamsungPay()');
+    developer.log(name: tag, 'initSamsungPay()');
     return await methodChannel.invokeMethod<bool?>('initSamsungPay',jsonEncode(partnerInfo?.toJson()));
   }
   @override
   Future<void> getSamsungPayStatus(StatusListener statusListener) async {
-    developer.log(name: TAG, 'getSamsungPayStatus()');
+    developer.log(name: tag, 'getSamsungPayStatus()');
     this.statusListener=statusListener;
     await methodChannel.invokeMethod('getSamsungPayStatus');
   }
   @override
   Future<void> getWalletInfo(StatusListener statusListener) async {
-    developer.log(name: TAG, 'getWalletInfo()');
+    developer.log(name: tag, 'getWalletInfo()');
     this.statusListener = statusListener;
     await methodChannel.invokeMethod('getWalletInfo');
   }
 
   @override
   Future<void> goToUpdatePage() async{
-    developer.log(name: TAG,  'goToUpdatePage()');
+    developer.log(name: tag,  'goToUpdatePage()');
     return await methodChannel.invokeMethod<void>('goToUpdatePage');
   }
 
   @override
   Future<void> activateSamsungPay() async{
-    developer.log(name: TAG, 'activateSamsungPay()');
+    developer.log(name: tag, 'activateSamsungPay()');
     await methodChannel.invokeMethod<void>('activateSamsungPay');
   }
 
   @override
   Future<void> addCard(AddCardInfo addCardInfo,AddCardListener addCardListener) async {
-    developer.log(name: TAG, 'addCard()');
+    developer.log(name: tag, 'addCard()');
     this.addCardListener=addCardListener;
     await methodChannel.invokeMethod('addCard', jsonEncode(addCardInfo.toJson()));
   }
 
   @override
   Future<void> getAllCards(GetCardListener getCardListener) async {
-    developer.log(name: TAG, 'getAllCards()');
+    developer.log(name: tag, 'getAllCards()');
     this.getCardListener=getCardListener;
     await methodChannel.invokeMethod('getAllCards');
   }
 
   @override
   Future<void> requestCardInfo(PaymentCardInfo paymentCardInfo, CardInfoListener cardInfoListener) async{
-    developer.log(name: TAG, 'requestCardInfo()');
+    developer.log(name: tag, 'requestCardInfo()');
     this.cardInfoListener = cardInfoListener;
    // developer.log(name: TAG, jsonEncode(paymentCardInfo.toJson().toString()));
     await methodChannel.invokeMethod("requestCardInfo", jsonEncode(paymentCardInfo.toJson()));
@@ -173,7 +173,7 @@ class MethodChannelSamsungPaySdkFlutter extends SamsungPaySdkFlutterPlatform {
 
   @override
   Future<void> startInAppPayWithCustomSheet(CustomSheetPaymentInfo customSheetPaymentInfo,CustomSheetTransactionInfoListener customSheetTransactionInfoListener) async{
-    developer.log(name: TAG,  'startInAppPayWithCustomSheet()');
+    developer.log(name: tag,  'startInAppPayWithCustomSheet()');
     this.customSheetTransactionInfoListener = customSheetTransactionInfoListener;
 
     _setSheetUpdateListener(customSheetPaymentInfo);
@@ -182,7 +182,7 @@ class MethodChannelSamsungPaySdkFlutter extends SamsungPaySdkFlutterPlatform {
 
   @override
   Future<void> updateSheet(CustomSheet customSheet, {int? customErrorCode, String? customErrorMessage}) async {
-    developer.log(name: TAG, 'updateSheet()');
+    developer.log(name: tag, 'updateSheet()');
     Map<String, dynamic> updateSheetJson = {};
     var customSheetJsonObject = customSheet.toJson();
     updateSheetJson["customSheet"] = customSheetJsonObject;
