@@ -20,13 +20,12 @@ class SheetControl {
   });
 
   ///@nodoc
-  /// API to set controlId.  
+  /// API to set controlId.
   ///
-  ///  [Parameters:] 
   /// [controlId] Unique ID to be set.
   ///
-  ///  [Exceptions]: 
-  ///Throws an [ArgumentError] if controlId is invalid.
+  /// **Exceptions:**
+  /// Throws an [ArgumentError] if controlId is invalid.
 
   void setControlId(String controlId) {
     if (controlId.isEmpty) {

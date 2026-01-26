@@ -1,4 +1,4 @@
-package com.samsung.flutter.sdk.samsungpay.v2.samsung_pay_sdk_flutter.utils
+package android.src.main.kotlin.com.samsung.flutter.sdk.samsungpay.v2.samsung_pay_sdk_flutter.utils
 
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson

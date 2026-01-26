@@ -1,4 +1,4 @@
-package com.samsung.flutter.sdk.samsungpay.v2.samsung_pay_sdk_flutter.utils
+package android.src.main.kotlin.com.samsung.flutter.sdk.samsungpay.v2.samsung_pay_sdk_flutter.utils
 
 import com.google.gson.Gson
 import com.google.gson.JsonArray
@@ -17,7 +17,10 @@ object SpinnerControlConverter {
         val spinnerControlPojo = Gson().fromJson(spinnerControlJsonString, SpinnerControlPojo::class.java)
 
         val itemList: ArrayList<SheetItem> = spinnerControlPojo.getSheetItem();
-        val spinnerControl = SpinnerControl(spinnerControlPojo.controlId, spinnerControlPojo.getSheetItem().elementAt(0).title,spinnerControlPojo.getSheetItem().elementAt(0).sheetItemType)
+        lateinit var spinnerControl:SpinnerControl
+        if(spinnerControlPojo.controlId!= null){
+            spinnerControl = SpinnerControl(spinnerControlPojo.controlId, spinnerControlPojo.getSheetItem().elementAt(0).title,spinnerControlPojo.getSheetItem().elementAt(0).sheetItemType)
+        }
 
         for (i in 1 until itemList.size) {
             val sheetItem = itemList[i]

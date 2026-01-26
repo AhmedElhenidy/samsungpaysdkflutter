@@ -15,29 +15,21 @@ class CustomSheet {
   ///
   CustomSheet();
 
+  /// API to add SheetControl (add SheetControl in specific location).
   ///
-  /// API to add SheetControl (add SheetControl in specific location). 
+  /// [sheetControl] SheetControl to be set.
+  /// The possible values are: [AddressControl], [AmountBoxControl], [PlainTextControl]
   ///
-  ///  [Parameters:] 
-  /// [sheetControl] 
-  ///       SheetControl to be set.  
-  ///       The possible values are: 
-  ///          [AddressControl] 
-  ///          [AmountBoxControl] 
-  ///          [PlainTextControl] 
-  ///       
-  ///[location] 
-  ///        SheetControl location to be displayed on custom payment sheet.For this case you need to call the method by using key: value format (location: 2). 
-  ///        
+  /// [location] SheetControl location to be displayed on custom payment sheet.
+  /// For this case you need to call the method by using key: value format (location: 2).
   ///
-  ///  [Exceptions] 
-  /// Throws an [ArgumentError] if the sheetControl is null.
-  /// Throws an [ArgumentError] if same ID is used in other SheetControls.
-  /// Throws an [ArgumentError] if there is no data in AmountBoxControl.
-  /// Throws an [ArgumentError] [AmountBoxControl.setAmountTotal(double, String)] API method should be called when AmountBoxControl is
-  ///        created or updated. 
-  ///        If setAmountTotal() is not called, AMOUNT_TOTAL SheetItemType is not the last item in AmountBoxControl.
-  ///
+  /// **Exceptions:**
+  /// - Throws an [ArgumentError] if the sheetControl is null.
+  /// - Throws an [ArgumentError] if same ID is used in other SheetControls.
+  /// - Throws an [ArgumentError] if there is no data in AmountBoxControl.
+  /// - Throws an [ArgumentError] if [AmountBoxControl.setAmountTotal] API method should be called
+  ///   when AmountBoxControl is created or updated. If setAmountTotal() is not called,
+  ///   AMOUNT_TOTAL SheetItemType is not the last item in AmountBoxControl.
   void addControl(SheetControl sheetControl,{int? location}){
     location??= sheetControls!.length;
       if (location < 0 || location > sheetControls!.length) {
@@ -59,15 +51,13 @@ class CustomSheet {
 
   }
 
+  /// API to get SheetControl.
   ///
-  /// API to get SheetControl. 
+  /// [controlId] ID to find SheetControl.
   ///
-  ///  [Parameters:] 
-  /// [controlId] ID to find SheetControl. 
+  /// Returns SheetControl which has the controlId.
   ///
-  /// Return SheetControl which has the controlId.
-  ///
-  ///  [Exceptions:] 
+  /// **Exceptions:**
   /// Throws an [ArgumentError] if the controlId is empty.
   ///
   /// API Level 1.3
@@ -84,33 +74,23 @@ class CustomSheet {
     return null;
   }
 
+  /// API to get SheetControl list.
   ///
-  /// API to get SheetControl list. 
-  ///
-  /// Return SheetControl list.
-  ///
+  /// Returns SheetControl list.
   List<SheetControl>? getSheetControls() {
     return sheetControls;
   }
 
+  /// API to remove SheetControl.
   ///
-  /// API to remove SheetControl. 
+  /// [sheetControl] SheetControl to be removed.
+  /// The possible values are: [AddressControl], [AmountBoxControl], [PlainTextControl]
   ///
-  ///  [Parameters:] 
-  /// [sheetControl]
-  ///       SheetControl to be removed. 
-  ///       The possible values are: 
-  ///            [AddressControl] 
-  ///            [AmountBoxControl] 
-  ///            [PlainTextControl] 
-  ///       
+  /// Returns `true`, if successfully deleted. Otherwise, returns `false`.
   ///
-  /// Return 'true', if successfully deleted . Otherwise, return 'false'.
-  ///
-  ///  [exceptions] 
-  /// Throws an [ArgumentError] if the sheetControl is null.
-  /// Throws an [ArgumentError] if SheetControl type is [Controltype.AMOUNTBOX] or [Controltype.ADDRESS].
-  ///
+  /// **Exceptions:**
+  /// - Throws an [ArgumentError] if the sheetControl is null.
+  /// - Throws an [ArgumentError] if SheetControl type is [Controltype.AMOUNTBOX] or [Controltype.ADDRESS].
   bool removeControl(SheetControl sheetControl){
     if (sheetControl.controltype == Controltype.AMOUNTBOX) {
       throw ArgumentError("AmountBoxControl must not be deleted.");
@@ -124,23 +104,15 @@ class CustomSheet {
     return false;
   }
 
+  /// API to update SheetControl.
   ///
-  /// API to update SheetControl. 
+  /// [sheetControl] SheetControl to be updated.
+  /// The possible values are: [AddressControl], [AmountBoxControl], [PlainTextControl]
   ///
-  ///  [Parameters:] 
-  /// [sheetControl]
-  ///       SheetControl to be updated. 
-  ///       The possible values are: 
-  ///            [AddressControl] 
-  ///            [AmountBoxControl] 
-  ///            [PlainTextControl] 
-  ///       
+  /// Returns `true`, if successfully updated. Otherwise, returns `false`.
   ///
-  /// Return 'true', if successfully updated. Otherwise, return 'false'.
-  ///
-  ///  [Exceptions:] 
+  /// **Exceptions:**
   /// Throws an [ArgumentError] if the sheetControl is null.
-  ///
 
   bool updateControl(SheetControl sheetControl) {
     int foundIndex = 0;

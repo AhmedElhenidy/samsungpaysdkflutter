@@ -8,16 +8,15 @@ class AmountBoxControl extends SheetControl{
   List<SheetItem>? items =[];
   String? currencyCode;
 
-  /// Constructor to create AmountBoxControl. 
+  /// Constructor to create AmountBoxControl.
   ///
-  ///  [Parameters:] 
-  /// [controlId] Unique ID to represent the AmountBoxControl. 
-  ///             This ID is used to compare and identify the other SheetControls. 
+  /// [controlId] Unique ID to represent the AmountBoxControl.
+  /// This ID is used to compare and identify the other SheetControls.
   ///
-  /// [currencyCode] Currency code to be used by Payment Gateway for payment. 
-  ///                ISO 4217 currency code (example: USD, KRW, EUR, and so on / All uppercase). 
+  /// [currencyCode] Currency code to be used by Payment Gateway for payment.
+  /// ISO 4217 currency code (example: USD, KRW, EUR, and so on / All uppercase).
   ///
-  ///  [Exceptions:] 
+  /// **Exceptions:**
   /// Throws an [ArgumentError] if controlId is empty. 
   ///
 

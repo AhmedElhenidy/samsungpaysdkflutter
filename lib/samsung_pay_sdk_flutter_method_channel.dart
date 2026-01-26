@@ -130,6 +130,19 @@ class MethodChannelSamsungPaySdkFlutter extends SamsungPaySdkFlutterPlatform {
     this.statusListener=statusListener;
     await methodChannel.invokeMethod('getSamsungPayStatus');
   }
+
+  @override
+  Future<int> getVersionCode() async {
+    developer.log(name: tag, 'getVersionCode()');
+    return await methodChannel.invokeMethod<int>('getVersionCode') ?? 0;
+  }
+
+  @override
+  Future<String> getVersionName() async{
+    developer.log(name: tag, 'getVersionName()');
+    return await methodChannel.invokeMethod<String>('getVersionName')?? "";
+  }
+
   @override
   Future<void> getWalletInfo(StatusListener statusListener) async {
     developer.log(name: tag, 'getWalletInfo()');
@@ -153,7 +166,18 @@ class MethodChannelSamsungPaySdkFlutter extends SamsungPaySdkFlutterPlatform {
   Future<void> addCard(AddCardInfo addCardInfo,AddCardListener addCardListener) async {
     developer.log(name: tag, 'addCard()');
     this.addCardListener=addCardListener;
+    print(jsonEncode(addCardInfo.toJson()).toString());
     await methodChannel.invokeMethod('addCard', jsonEncode(addCardInfo.toJson()));
+  }
+
+  @override
+  Future<void> addCobadgeCard(AddCardInfo primaryAddCardInfo,AddCardInfo secondaryAddCardInfo,AddCardListener addCardListener) async {
+    developer.log(name: tag, 'addCobadgeCard()');
+    this.addCardListener=addCardListener;
+    Map<String, dynamic> addCoBadgeCardInfo = {};
+    addCoBadgeCardInfo["primaryAddCardInfo"] = jsonEncode(primaryAddCardInfo.toJson());
+    addCoBadgeCardInfo["secondaryAddCardInfo"] = jsonEncode(secondaryAddCardInfo.toJson());
+    await methodChannel.invokeMethod('addCobadgeCard', addCoBadgeCardInfo.toString());
   }
 
   @override

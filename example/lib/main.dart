@@ -103,6 +103,11 @@ class _MyHomePageState extends State<MyHomePage> {
     customSheetPaymentInfo.allowedCardBrand = brandList;
     customSheetPaymentInfo.setCardHolderNameEnabled(false);
     customSheetPaymentInfo.setExtraPaymentInfo(extraPaymentInfo);
+    
+    // For MADA payments, you can set the transaction type:
+    // TransactionType.PURCHASE (default) or TransactionType.PREAUTHORIZATION
+    // customSheetPaymentInfo.setTransactionType(TransactionType.PURCHASE);
+    
     return customSheetPaymentInfo;
   }
 

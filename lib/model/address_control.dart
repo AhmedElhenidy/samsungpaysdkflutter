@@ -18,26 +18,19 @@ class AddressControl extends SheetControl{
   int? errorCode;
   SheetUpdatedListener? sheetUpdatedListener;
 
-  /// Constructor to create AddressControl. 
+  /// Constructor to create AddressControl.
   ///
-  ///  [Parameters:] 
-  ///  [controlId] Unique ID to represent the AddressControl. 
-  ///              This ID is used to compare and identify the other SheetControls. 
+  /// [controlId] Unique ID to represent the AddressControl.
+  /// This ID is used to compare and identify the other SheetControls.
   ///
-  /// [sheetItemType] SheetItemType represents billing address or shipping address. 
-  ///       
-  ///      The possible values are: 
-  ///        [SheetItemType.BILLING_ADDRESS] 
-  ///        [SheetItemType.ZIP_ONLY_ADDRESS] 
-  ///        [SheetItemType.SHIPPING_ADDRESS] 
-  ///      It is possible to show only one billing AddressControl and one shipping AddressControl. 
+  /// [sheetItemType] SheetItemType represents billing address or shipping address.
+  /// The possible values are: [SheetItemType.BILLING_ADDRESS], [SheetItemType.ZIP_ONLY_ADDRESS], [SheetItemType.SHIPPING_ADDRESS]
+  /// It is possible to show only one billing AddressControl and one shipping AddressControl.
   ///
-  ///  [Exceptions:] 
-  /// Throws an [ArgumentError] if controlId is null or empty. 
-  /// Throws an [ArgumentError] if sheetItemType is not 
-  ///         [sheetItemType.BILLING_ADDRESS] or 
-  ///         [sheetItemType.ZIP_ONLY_ADDRESS] or 
-  ///         [sheetItemType.SHIPPING_ADDRESS] 
+  /// **Exceptions:**
+  /// - Throws an [ArgumentError] if controlId is null or empty.
+  /// - Throws an [ArgumentError] if sheetItemType is not [SheetItemType.BILLING_ADDRESS] or
+  ///   [SheetItemType.ZIP_ONLY_ADDRESS] or [SheetItemType.SHIPPING_ADDRESS] 
   ///
   ///
   AddressControl(String controlId, String sheetItemType): super(controltype: Controltype.ADDRESS){
@@ -59,18 +52,9 @@ class AddressControl extends SheetControl{
     return address;
   }
 
+  /// API to set address.
   ///
-  /// API to set address.  
-  ///
-  ///  [Parameters:] 
-  /// [address] Address to be set.  
-  ///       
-  ///       The possible values are: 
-  ///         [SheetItemType.BILLING_ADDRESS] 
-  ///         [SheetItemType.SHIPPING_ADDRESS] 
-  ///       
-  ///
-  ///
+  /// [address] Address to be set.
   void setAddress(Address address){
     this.address=address;
   }

@@ -1,4 +1,4 @@
-package com.samsung.flutter.sdk.samsungpay.v2.samsung_pay_sdk_flutter
+package android.src.main.kotlin.com.samsung.flutter.sdk.samsungpay.v2.samsung_pay_sdk_flutter
 
 import android.content.Context
 import android.os.Bundle
@@ -25,6 +25,8 @@ import com.samsung.flutter.sdk.samsungpay.v2.samsung_pay_sdk_flutter.utils.Custo
 import com.samsung.flutter.sdk.samsungpay.v2.samsung_pay_sdk_flutter.utils.CustomSheetPaymentInfoConverter
 import com.samsung.flutter.sdk.samsungpay.v2.samsung_pay_sdk_flutter.utils.PartnerInfoConverter
 import android.src.main.kotlin.com.samsung.flutter.sdk.samsungpay.v2.samsung_pay_sdk_flutter.pojo.RequestCardInfoPojo
+import com.samsung.flutter.sdk.samsungpay.v2.samsung_pay_sdk_flutter.utils.AddCobadgeCardInfoConverter
+import com.samsung.android.sdk.samsungpay.v2.card.AddCardInfo
 import io.flutter.Log
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
@@ -61,6 +63,12 @@ class SamsungPaySdkFlutterPlugin: FlutterPlugin, MethodCallHandler {
         "getSamsungPayStatus" -> {
           getSamsungPayStatus()
         }
+        "getVersionCode"->{
+          result.success(SpaySdk.getVersionCode())
+        }
+      "getVersionName"->{
+        result.success(SpaySdk.getVersionName())
+      }
          "getWalletInfo" -> {
            getWalletInfo()
          }
@@ -72,6 +80,9 @@ class SamsungPaySdkFlutterPlugin: FlutterPlugin, MethodCallHandler {
         }
         "addCard" -> {
           addCard(call.arguments as String)
+        }
+        "addCobadgeCard" -> {
+          addCobadgeCard(call.arguments as String)
         }
         "getAllCards"->{
           getAllCards()
@@ -240,6 +251,65 @@ class SamsungPaySdkFlutterPlugin: FlutterPlugin, MethodCallHandler {
 
     })
   }
+
+  private fun addCobadgeCard(addCoBadgeCardInfoJsonString : String){
+    Log.d(TAG, "addCobadgeCard()")
+
+    var addCobadgeCardInfo = ArrayList<AddCardInfo>()
+    addCobadgeCardInfo = AddCobadgeCardInfoConverter.getAddCobadgeCardInfo(addCoBadgeCardInfoJsonString)
+    val primaryAddCardInfo = addCobadgeCardInfo.get(0)
+    val secondaryAddCardInfo = addCobadgeCardInfo.get(1)
+
+    cardManager.addCobadgeCard(primaryAddCardInfo, secondaryAddCardInfo , object : AddCardListener {
+      override fun onSuccess(status: Int, card: Card?) {
+        Log.d(TAG, "onSuccess: currentCount=$status,card:$card")
+        val spayOnSuccessResult= JsonObject()
+        val cardDataJson= JsonObject()
+        val cardInfo= JsonObject()
+        card?.cardInfo?.keySet()?.forEach {
+          cardInfo.addProperty(it, card.cardInfo?.get(it).toString())
+        }
+        spayOnSuccessResult.addProperty("event","onSuccess")
+        spayOnSuccessResult.addProperty("status",status.toString())
+        cardDataJson.addProperty("cardId",card?.cardId)
+        cardDataJson.addProperty("cardStatus",card?.cardStatus)
+        cardDataJson.addProperty("cardBrand", card?.cardBrand?.name)
+        cardDataJson.add("cardInfo",cardInfo)
+        spayOnSuccessResult.add("card",cardDataJson)
+        channel.invokeMethod(/* method = */ "addCardFlutter",
+          /* arguments = */ spayOnSuccessResult.toString())
+      }
+      override fun onFail(status: Int, bundle: Bundle?) {
+        Log.d(TAG, "onFail: status=$status,bundle:$bundle")
+        val spayOnFailedResult= JsonObject()
+        val bundleDataJson = JsonObject()
+        bundle?.keySet()?.forEach {
+          bundleDataJson.addProperty(it, bundle.get(it).toString())
+        }
+        spayOnFailedResult.addProperty("event","onFail")
+        spayOnFailedResult.addProperty("status",status.toString())
+        spayOnFailedResult.add("bundle",bundleDataJson)
+        channel.invokeMethod(/* method = */ "addCardFlutter",
+          /* arguments = */ spayOnFailedResult.toString())
+      }
+      override fun onProgress(currentCount: Int, totalCount: Int, bundle: Bundle?) {
+        Log.d(TAG, "onProgress: currentCount=$currentCount,bundle:$bundle")
+        val spayOnProgressResult= JsonObject()
+        val bundleDataJson = JsonObject()
+        bundle?.keySet()?.forEach {
+          bundleDataJson.addProperty(it, bundle.get(it).toString())
+        }
+        spayOnProgressResult.addProperty("event","onProgress")
+        spayOnProgressResult.addProperty("currentCount",currentCount.toString())
+        spayOnProgressResult.addProperty("totalCount",totalCount.toString())
+        spayOnProgressResult.add("bundle",bundleDataJson)
+        channel.invokeMethod(/* method = */ "addCardFlutter",
+          /* arguments = */ spayOnProgressResult.toString())
+      }
+
+    })
+  }
+
 
   private fun getAllCards(){
     Log.d(TAG, "getAllCards()")

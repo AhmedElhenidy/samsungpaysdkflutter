@@ -1,4 +1,4 @@
-package com.samsung.flutter.sdk.samsungpay.v2.samsung_pay_sdk_flutter.utils
+package android.src.main.kotlin.com.samsung.flutter.sdk.samsungpay.v2.samsung_pay_sdk_flutter.utils
 
 import com.google.gson.FieldNamingPolicy
 import com.google.gson.Gson
@@ -15,7 +15,10 @@ class AddressControlConverter {
         sheetUpdatedListener: SheetUpdatedListener?
     ): AddressControl {
         val addressControlPojo = Gson().fromJson(addressControlJsonString, AddressControlPojo::class.java)
-        val addressControl= AddressControl(addressControlPojo.controlId,addressControlPojo.getSheetItem().getSheetItemType())
+        lateinit var addressControl: AddressControl
+        if(addressControlPojo.controlId != null && addressControlPojo.getSheetItem().getSheetItemType() != null){
+            addressControl= AddressControl(addressControlPojo.controlId,addressControlPojo.getSheetItem().getSheetItemType())
+        }
         if(addressControlPojo.address != null)
             addressControl.address = AddressConverter.getAddressConverter(addressControlPojo.address.toString())
         if(addressControlPojo.sheetItem != null)

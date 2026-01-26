@@ -36,9 +36,12 @@ class PaymentCardInfo {
       brandFromJson = Brand.PAGOBANCOMAT;
     } else if(json["brand"].toString() == Brand.OCTOPUS.name) {
       brandFromJson = Brand.OCTOPUS;
-    } else if(json["brand"].toString() == Brand.MADA.name) {
+    }else if(json["brand"].toString() == Brand.ELO.name) {
+      brandFromJson = Brand.ELO;
+    }else if(json["brand"].toString() == Brand.MADA.name) {
       brandFromJson = Brand.MADA;
     }
+
 
     PaymentCardInfo paymentCardInfo = PaymentCardInfo();
     paymentCardInfo.brand = brandFromJson;

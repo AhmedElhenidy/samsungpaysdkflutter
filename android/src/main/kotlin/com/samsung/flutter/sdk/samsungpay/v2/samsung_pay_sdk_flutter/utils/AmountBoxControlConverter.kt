@@ -1,4 +1,4 @@
-package com.samsung.flutter.sdk.samsungpay.v2.samsung_pay_sdk_flutter.utils
+package android.src.main.kotlin.com.samsung.flutter.sdk.samsungpay.v2.samsung_pay_sdk_flutter.utils
 
 import android.src.main.kotlin.com.samsung.flutter.sdk.samsungpay.v2.samsung_pay_sdk_flutter.pojo.AmountBoxControlPojo
 import com.google.gson.*
@@ -16,7 +16,10 @@ object AmountBoxControlConverter {
         var itemList = ArrayList<SheetItem>()
         itemList = amountBoxControlPojo.getSheetItem()
 
-        val amountBoxControl= AmountBoxControl(amountBoxControlPojo.controlId,amountBoxControlPojo.currencyCode)
+        lateinit var amountBoxControl: AmountBoxControl
+        if(amountBoxControlPojo.controlId != null && amountBoxControlPojo.currencyCode != null){
+            amountBoxControl= AmountBoxControl(amountBoxControlPojo.controlId,amountBoxControlPojo.currencyCode)
+        }
 
         for (sheetItem in itemList) {
             if(sheetItem.sheetItemType == SheetItemType.AMOUNT_TOTAL){

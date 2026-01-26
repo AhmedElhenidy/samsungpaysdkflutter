@@ -69,8 +69,16 @@ class AddCardInfo{
   ///
 
   static const String PROVIDER_PAGOBANCOMAT = "PB";
-  ///  Key to represent a Samsung Pay Card for push provisioning. 
-  ///  If the key value is true, the current push provisioning card will have a Samsung Pay Card type in Samsung Wallet application. 
+  /// Indicates that the card tokenization provider is ELO.
+  ///
+
+  static const String PROVIDER_ELO = "ELO";
+  /// Indicates that the card tokenization provider is MADA.
+  ///
+
+  static const String PROVIDER_MADA = "MADA";
+  ///  Key to represent a Samsung Pay Card for push provisioning.
+  ///  If the key value is true, the current push provisioning card will have a Samsung Pay Card type in Samsung Wallet application.
   ///  This is only for specific issuer in UK.
   ///
 

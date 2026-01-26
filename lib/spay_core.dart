@@ -707,6 +707,9 @@ class SpaySdk{
   /// Since API Level 2.11
   ///
   static const String EXTRA_MERCHANT_REF_ID = "merchantRefId";
+
+  static const String EXTRA_ONLINE_TRANSACTION_TYPE = "transactionType";
+
   ///
   /// Key to represent wallet provider ID. 
   /// This ID can be assigned by TSP during on-boarding process.
@@ -752,138 +755,70 @@ class SpaySdk{
   ///
   /// Since API Level 2.7
   static const String EXTRA_KEY_CARD_BRAND_FILTER = "card_brand_filter";
-  /// This table shows the status codes used commonly. 
+  /// This table shows the status codes used commonly.
   ///
-  /// <table>
-  ///     <tr style="border:1px solid black;">
-  ///         <th style="border:1px solid black;">Status</th>
-  ///         <th style="border:1px solid black;">Bundle Keys</th>
-  ///         <th style="border:1px solid black;">Bundle Values</th>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;" rowspan="6">[SPAY_NOT_SUPPORTED] (0)</td>
-  ///         <td style="border:1px solid black;" rowspan="6">[EXTRA_ERROR_REASON]</td>
-  ///         <td style="border:1px solid black;">[ERROR_DEVICE_NOT_SAMSUNG] (-350)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_SPAY_PKG_NOT_FOUND] (-351)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_SPAY_SDK_SERVICE_NOT_AVAILABLE] (-352)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_DEVICE_INTEGRITY_CHECK_FAIL] (-353)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_SPAY_APP_INTEGRITY_CHECK_FAIL] (-360)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_ANDROID_PLATFORM_CHECK_FAIL] (-361)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;" rowspan="2">[SPAY_NOT_READY] (1)</td>
-  ///         <td style="border:1px solid black;" rowspan="2">[EXTRA_ERROR_REASON]</td>
-  ///         <td style="border:1px solid black;">[ERROR_SPAY_SETUP_NOT_COMPLETED] (-356)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_SPAY_APP_NEED_TO_UPDATE] (-357)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;" rowspan="2">[ERROR_SPAY_INTERNAL] (-1)</td>
-  ///         <td style="border:1px solid black;">[EXTRA_ERROR_REASON]</td>
-  ///         <td style="border:1px solid black;">[ERROR_SERVER_INTERNAL] (-311)</td>
-  ///     </tr>
-  ///     </tr>
-  ///         <td style="border:1px solid black;">N/A</td>
-  ///         <td style="border:1px solid black;">N/A</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;" rowspan="14">[ERROR_NOT_ALLOWED] (-6)</td>
-  ///         <td style="border:1px solid black;" rowspan="14">[EXTRA_ERROR_REASON]</td>
-  ///         <td style="border:1px solid black;">[ERROR_INVALID_PARAMETER] (-12)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_SDK_NOT_SUPPORTED_FOR_THIS_REGION] (-300)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_SERVICE_ID_INVALID] (-301)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_SERVICE_UNAVAILABLE_FOR_THIS_REGION] (-302)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_PARTNER_APP_SIGNATURE_MISMATCH] (-303)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_PARTNER_APP_VERSION_NOT_SUPPORTED] (-304)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_PARTNER_APP_BLOCKED] (-305)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_USER_NOT_REGISTERED_FOR_DEBUG] (-306)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_SERVICE_NOT_APPROVED_FOR_RELEASE] (-307)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_PARTNER_NOT_APPROVED] (-308)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_UNAUTHORIZED_REQUEST_TYPE] (-309)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_EXPIRED_OR_INVALID_DEBUG_KEY] (-310)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_MISSING_INFORMATION] (-354)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_UNABLE_TO_VERIFY_CALLER] (-359)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_INVALID_PARAMETER] (-12)</td>
-  ///         <td style="border:1px solid black;">N/A</td>
-  ///         <td style="border:1px solid black;">N/A</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_NO_NETWORK] (-21)</td>
-  ///         <td style="border:1px solid black;">N/A</td>
-  ///         <td style="border:1px solid black;">N/A</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_SERVER_NO_RESPONSE] (-22)</td>
-  ///         <td style="border:1px solid black;">N/A</td>
-  ///         <td style="border:1px solid black;">N/A</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;" rowspan="3">[ERROR_PARTNER_INFO_INVALID] (-99)</td>
-  ///         <td style="border:1px solid black;" rowspan="3">[EXTRA_ERROR_REASON]</td>
-  ///         <td style="border:1px solid black;">[ERROR_PARTNER_SDK_API_LEVEL] (-10)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_PARTNER_SERVICE_TYPE] (-11)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_PARTNER_SDK_VERSION_NOT_ALLOWED] (-358)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_INITIATION_FAIL] (-103)</td>
-  ///         <td style="border:1px solid black;">N/A</td>
-  ///         <td style="border:1px solid black;">N/A</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[SPAY_NOT_ALLOWED_TEMPORALLY] (3)</td>
-  ///         <td style="border:1px solid black;">[EXTRA_ERROR_REASON]</td>
-  ///         <td style="border:1px solid black;">[ERROR_SPAY_CONNECTED_WITH_EXTERNAL_DISPLAY] (-605)</td>
-  ///     </tr>
-  ///     <tr style="border:1px solid black;">
-  ///         <td style="border:1px solid black;">[ERROR_SPAY_FMM_LOCK] (-604)</td>
-  ///         <td style="border:1px solid black;">N/A</td>
-  ///         <td style="border:1px solid black;">N/A</td>
-  ///     </tr>
-  ///  </table>
-  ///  
+  /// **Status Codes:**
+  ///
+  /// **SPAY_NOT_SUPPORTED (0)**
+  /// - Bundle Key: [EXTRA_ERROR_REASON]
+  /// - Possible Values:
+  ///   - [ERROR_DEVICE_NOT_SAMSUNG] (-350)
+  ///   - [ERROR_SPAY_PKG_NOT_FOUND] (-351)
+  ///   - [ERROR_SPAY_SDK_SERVICE_NOT_AVAILABLE] (-352)
+  ///   - [ERROR_DEVICE_INTEGRITY_CHECK_FAIL] (-353)
+  ///   - [ERROR_SPAY_APP_INTEGRITY_CHECK_FAIL] (-360)
+  ///   - [ERROR_ANDROID_PLATFORM_CHECK_FAIL] (-361)
+  ///
+  /// **SPAY_NOT_READY (1)**
+  /// - Bundle Key: [EXTRA_ERROR_REASON]
+  /// - Possible Values:
+  ///   - [ERROR_SPAY_SETUP_NOT_COMPLETED] (-356)
+  ///   - [ERROR_SPAY_APP_NEED_TO_UPDATE] (-357)
+  ///
+  /// **ERROR_SPAY_INTERNAL (-1)**
+  /// - Bundle Key: [EXTRA_ERROR_REASON]
+  /// - Possible Values:
+  ///   - [ERROR_SERVER_INTERNAL] (-311)
+  /// - Bundle Key: N/A, Bundle Value: N/A
+  ///
+  /// **ERROR_NOT_ALLOWED (-6)**
+  /// - Bundle Key: [EXTRA_ERROR_REASON]
+  /// - Possible Values:
+  ///   - [ERROR_INVALID_PARAMETER] (-12)
+  ///   - [ERROR_SDK_NOT_SUPPORTED_FOR_THIS_REGION] (-300)
+  ///   - [ERROR_SERVICE_ID_INVALID] (-301)
+  ///   - [ERROR_SERVICE_UNAVAILABLE_FOR_THIS_REGION] (-302)
+  ///   - [ERROR_PARTNER_APP_SIGNATURE_MISMATCH] (-303)
+  ///   - [ERROR_PARTNER_APP_VERSION_NOT_SUPPORTED] (-304)
+  ///   - [ERROR_PARTNER_APP_BLOCKED] (-305)
+  ///   - [ERROR_USER_NOT_REGISTERED_FOR_DEBUG] (-306)
+  ///   - [ERROR_SERVICE_NOT_APPROVED_FOR_RELEASE] (-307)
+  ///   - [ERROR_PARTNER_NOT_APPROVED] (-308)
+  ///   - [ERROR_UNAUTHORIZED_REQUEST_TYPE] (-309)
+  ///   - [ERROR_EXPIRED_OR_INVALID_DEBUG_KEY] (-310)
+  ///   - [ERROR_MISSING_INFORMATION] (-354)
+  ///   - [ERROR_UNABLE_TO_VERIFY_CALLER] (-359)
+  /// - Bundle Key: N/A, Bundle Value: N/A (for [ERROR_INVALID_PARAMETER] (-12))
+  /// - Bundle Key: N/A, Bundle Value: N/A (for [ERROR_NO_NETWORK] (-21))
+  /// - Bundle Key: N/A, Bundle Value: N/A (for [ERROR_SERVER_NO_RESPONSE] (-22))
+  ///
+  /// **ERROR_PARTNER_INFO_INVALID (-99)**
+  /// - Bundle Key: [EXTRA_ERROR_REASON]
+  /// - Possible Values:
+  ///   - [ERROR_PARTNER_SDK_API_LEVEL] (-10)
+  ///   - [ERROR_PARTNER_SERVICE_TYPE] (-11)
+  ///   - [ERROR_PARTNER_SDK_VERSION_NOT_ALLOWED] (-358)
+  ///
+  /// **ERROR_INITIATION_FAIL (-103)**
+  /// - Bundle Key: N/A, Bundle Value: N/A
+  ///
+  /// **SPAY_NOT_ALLOWED_TEMPORALLY (3)**
+  /// - Bundle Key: [EXTRA_ERROR_REASON]
+  /// - Possible Values:
+  ///   - [ERROR_SPAY_CONNECTED_WITH_EXTERNAL_DISPLAY] (-605)
+  ///
+  /// **ERROR_SPAY_FMM_LOCK (-604)**
+  /// - Bundle Key: N/A, Bundle Value: N/A
 
   static const String COMMON_STATUS_TABLE = "common_error_table";
 
@@ -993,9 +928,15 @@ enum Brand {
   ///
   PAGOBANCOMAT,
   ///
-  /// Card brand for Saudi Arabia mada.
+  /// Card brand for ELO
   ///
-  /// Since API Level 2.13
+  /// Since API Level 2.21
+  ///
+  ELO,
+  ///
+  /// Card brand for Saudi Arabia MADA.
+  ///
+  /// Since API Level 2.22
   ///
   MADA
 }
@@ -1102,4 +1043,14 @@ enum Controltype{
   /// Controltype for Spinner Component.
   ///
   SPINNER;
+}
+///
+/// This value is specifically supported for MADA tokens and will not apply to other token types.
+/// The Possible values are: PURCHASE / PREAUTHORIZATION The default value is PURCHASE.
+///
+/// Since API Level 2.22
+///
+enum TransactionType {
+  PURCHASE,
+  PREAUTHORIZATION;
 }

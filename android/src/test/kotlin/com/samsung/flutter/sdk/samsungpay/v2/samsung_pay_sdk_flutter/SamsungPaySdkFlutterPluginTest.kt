@@ -1,4 +1,4 @@
-package com.samsung.flutter.sdk.samsungpay.v2.samsung_pay_sdk_flutter
+package android.src.test.kotlin.com.samsung.flutter.sdk.samsungpay.v2.samsung_pay_sdk_flutter
 
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel

@@ -1,4 +1,4 @@
-package com.samsung.flutter.sdk.samsungpay.v2.samsung_pay_sdk_flutter.pojo
+package android.src.main.kotlin.com.samsung.flutter.sdk.samsungpay.v2.samsung_pay_sdk_flutter.pojo
 
 import android.os.Bundle
 import com.google.gson.JsonArray
@@ -89,6 +89,7 @@ data class CustomSheetPaymentInfoPojo(
 			Brand.OCTOPUS.name -> Brand.OCTOPUS
 			Brand.ECI.name -> Brand.ECI
 			Brand.PAGOBANCOMAT.name -> Brand.PAGOBANCOMAT
+			Brand.ELO.name -> Brand.ELO
 			Brand.MADA.name -> Brand.MADA
 			else -> Brand.UNKNOWN_CARD
 		}

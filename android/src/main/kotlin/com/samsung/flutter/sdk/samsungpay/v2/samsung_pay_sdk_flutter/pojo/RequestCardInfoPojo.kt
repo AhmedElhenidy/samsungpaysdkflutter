@@ -54,6 +54,10 @@ data class RequestCardInfoPojo(
             {
                 brandList.add(SpaySdk.Brand.OCTOPUS)
             }
+            else if(brand  == Brand.ELO.name)
+            {
+                brandList.add(SpaySdk.Brand.ELO)
+            }
             else if(brand  == Brand.MADA.name)
             {
                 brandList.add(SpaySdk.Brand.MADA)

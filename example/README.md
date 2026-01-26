@@ -30,9 +30,24 @@ List<Brand> brandList = [
   Brand.MASTERCARD,
   Brand.AMERICANEXPRESS,
   Brand.DISCOVER,
-  Brand.MADA, // Saudi Arabia mada payment network
+  Brand.MADA, 
 ];
 ```
+
+## MADA Transaction Type
+
+For MADA  payment transactions, you can specify the transaction type:
+
+```dart
+// Set transaction type for MADA payments (optional)
+// Default is TransactionType.PURCHASE
+customSheetPaymentInfo.setTransactionType(TransactionType.PURCHASE);
+
+// Or for pre-authorization:
+customSheetPaymentInfo.setTransactionType(TransactionType.PREAUTHORIZATION);
+```
+
+**Note:** The transaction type is specifically supported for MADA tokens and will not apply to other token types.
 
 ## Resources
 

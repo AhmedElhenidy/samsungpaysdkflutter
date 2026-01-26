@@ -27,9 +27,7 @@ class CustomSheetPaymentInfo {
 
   /// API to set the address display option for payment sheet.
   ///
-  ///  [Parameters:] 
   /// [addressInPaymentSheet] Address UI to display on the payment sheet.
-  /// Return CustomSheetPaymentInfo Builder.
   ///
 
   void setAddressInPaymentSheet(AddressInPaymentSheet addressInPaymentSheet){
@@ -38,7 +36,6 @@ class CustomSheetPaymentInfo {
 
   /// API to set the card brands list supported by merchant.
   ///
-  ///  [Parameters:] 
   /// [brands] Card brands supported by merchant for payment.
   ///
 
@@ -51,7 +48,6 @@ class CustomSheetPaymentInfo {
   /// Set to 'true' if card holder's name should be displayed with card information on the payment sheet. 
   /// If issuer does not provide card holder's name, it will not be displayed.
   ///
-  ///  [Parameters:] 
   /// [isCardHolderNameRequired] True, if merchant wants to display card holder's name on the payment sheet.
   ///
 
@@ -61,7 +57,6 @@ class CustomSheetPaymentInfo {
 
   /// API to set customSheet. 
   ///
-  ///  [Parameters:] 
   /// [customSheet] CustomSheet configured by merchant.
   ///
 
@@ -71,7 +66,6 @@ class CustomSheetPaymentInfo {
 
   /// API to set the extra payment information data.
   ///
-  ///  [Parameters:] 
   /// [extraPaymentInfo] Extra PaymentInfo data.
   ///
 
@@ -82,10 +76,9 @@ class CustomSheetPaymentInfo {
   /// API to set the merchant country code.  
   /// This API internally verifies and sets two-letter merchant country code, if it is a valid country code.
   ///
-  ///  [Parameters:] 
   /// [merchantCountryCode] Country code, where merchant is operating.
   ///
-  ///  [Exceptions:] 
+  /// **Exceptions:**
   /// Throws an [ArgumentError] if merchantCountryCode is invalid. 
   ///
 
@@ -95,7 +88,6 @@ class CustomSheetPaymentInfo {
 
   /// API to set the merchant reference ID.
   ///
-  ///  [Parameters:] 
   /// [merchantId] Merchant reference ID which can be used for merchant's own purpose. 
   ///         For example, if merchant uses a Payment Gateway which requires Payment Gateway User ID,
   ///         then merchantId field can be set with a Payment Gateway User ID. 
@@ -107,7 +99,6 @@ class CustomSheetPaymentInfo {
 
   /// API to set the merchant name.
   ///
-  ///  [Parameters:] 
   /// [merchantName] Merchant name.
   ///
 
@@ -116,7 +107,6 @@ class CustomSheetPaymentInfo {
   }
 
   /// API to set the order number.
-  ///  [Parameters:] 
   /// [orderNumber] Order number sent by merchant for records. 
   /// The allowed characters are [A-Z][a-z][0-9,-] & up to 36 characters. 
   /// This field is mandatory for VISA.
@@ -131,7 +121,6 @@ class CustomSheetPaymentInfo {
   /// setPaymentCardLast4FPAN(String) API method
   /// to designate specific card for the transaction. 
   ///
-  ///  [Parameters:] 
   /// [cardBrand] Card brand.
   ///
 
@@ -144,7 +133,6 @@ class CustomSheetPaymentInfo {
   /// This API can be used with setPaymentCardBrand(SpaySdk.Brand) API method
   /// to designate specific card for the transaction. 
   ///
-  ///  [Parameters:] 
   /// [last4digits] The last 4 digits of DPAN for payment transaction.
   ///
 
@@ -168,7 +156,6 @@ class CustomSheetPaymentInfo {
 
   /// API to set the shipping method for payment transaction. 
   ///
-  ///  [Parameters:] 
   /// [shippingMethod] Shipping method.
   ///
 
@@ -179,12 +166,42 @@ class CustomSheetPaymentInfo {
 
   /// API to set if payment is recurring.
   ///
-  ///  [Parameters:] 
   /// [isRecurring] True, if payment is recurring.
   ///
 
   void setRecurringEnabled(bool isRecurring){
     this.isRecurring = isRecurring;
+  }
+
+  /// API to set the transaction type for MADA payment transactions.
+  ///
+  /// This value is specifically supported for MADA tokens and will not apply to other token types.
+  /// The possible values are: [TransactionType.PURCHASE] or [TransactionType.PREAUTHORIZATION].
+  /// The default value is [TransactionType.PURCHASE].
+  ///
+  /// [transactionType] Transaction type for MADA payment.
+  ///
+  /// Since API Level 2.22
+  ///
+  void setTransactionType(TransactionType transactionType){
+    _nullCheckExtraPaymentInfo();
+    extraPaymentInfo![SpaySdk.EXTRA_ONLINE_TRANSACTION_TYPE] = transactionType.name;
+  }
+
+  /// API to get the transaction type for MADA payment transactions.
+  ///
+  /// Returns the transaction type set for MADA payments, or null if not set.
+  ///
+  /// Since API Level 2.22
+  ///
+  TransactionType? getTransactionType(){
+    _nullCheckExtraPaymentInfo();
+    if(extraPaymentInfo![SpaySdk.EXTRA_ONLINE_TRANSACTION_TYPE] == TransactionType.PURCHASE.name) {
+      return TransactionType.PURCHASE;
+    } else if(extraPaymentInfo![SpaySdk.EXTRA_ONLINE_TRANSACTION_TYPE] == TransactionType.PREAUTHORIZATION.name) {
+      return TransactionType.PREAUTHORIZATION;
+    }
+    return null;
   }
 
   ///@nodoc
@@ -241,7 +258,30 @@ class CustomSheetPaymentInfo {
 
   Brand? getPaymentCardBrand(){
     _nullCheckExtraPaymentInfo();
-    return extraPaymentInfo![SpaySdk.EXTRA_CARD_BRAND];
+    if(extraPaymentInfo![SpaySdk.EXTRA_CARD_BRAND] == Brand.VISA.name) {
+      return Brand.VISA;
+    } else if(extraPaymentInfo![SpaySdk.EXTRA_CARD_BRAND] == Brand.MASTERCARD.name) {
+      return Brand.MASTERCARD;
+    } else if(extraPaymentInfo![SpaySdk.EXTRA_CARD_BRAND] == Brand.AMERICANEXPRESS.name) {
+      return Brand.AMERICANEXPRESS;
+    } else if(extraPaymentInfo![SpaySdk.EXTRA_CARD_BRAND] == Brand.CHINAUNIONPAY.name) {
+      return Brand.CHINAUNIONPAY;
+    } else if(extraPaymentInfo![SpaySdk.EXTRA_CARD_BRAND] == Brand.DISCOVER.name) {
+      return Brand.DISCOVER;
+    } else if(extraPaymentInfo![SpaySdk.EXTRA_CARD_BRAND] == Brand.ECI.name) {
+      return Brand.ECI;
+    } else if(extraPaymentInfo![SpaySdk.EXTRA_CARD_BRAND] == Brand.PAGOBANCOMAT.name) {
+      return Brand.PAGOBANCOMAT;
+    } else if(extraPaymentInfo![SpaySdk.EXTRA_CARD_BRAND] == Brand.OCTOPUS.name) {
+      return Brand.OCTOPUS;
+    } else if(extraPaymentInfo![SpaySdk.EXTRA_CARD_BRAND] == Brand.MADA.name) {
+      return Brand.MADA;
+    }else if(extraPaymentInfo![SpaySdk.EXTRA_CARD_BRAND] == Brand.ELO.name) {
+      return Brand.ELO;
+    }else if(extraPaymentInfo![SpaySdk.EXTRA_CARD_BRAND] == Brand.UNKNOWN_CARD.name) {
+      return Brand.UNKNOWN_CARD;
+    }
+    return Brand.UNKNOWN_CARD;
   }
 
   /// API to return the last 4 digits of DPAN which was used in the current transaction. 
@@ -335,22 +375,16 @@ class CustomSheetPaymentInfo {
     customSheetPaymentInfo.orderNumber = json["orderNumber"].toString();
     if(json["addressInPaymentSheet"] == AddressInPaymentSheet.DO_NOT_SHOW.name) {
       customSheetPaymentInfo.addressInPaymentSheet = AddressInPaymentSheet.DO_NOT_SHOW;
-    } else if(json["addressInPaymentSheet"] == AddressInPaymentSheet.NEED_BILLING_AND_SHIPPING.name) {
-      customSheetPaymentInfo.addressInPaymentSheet =
-          AddressInPaymentSheet.NEED_BILLING_AND_SHIPPING;
-    } else if(json["addressInPaymentSheet"] == AddressInPaymentSheet.NEED_BILLING_SEND_SHIPPING.name) {
-      customSheetPaymentInfo.addressInPaymentSheet ==
-          AddressInPaymentSheet.NEED_BILLING_SEND_SHIPPING;
-    } else if(json["addressInPaymentSheet"] == AddressInPaymentSheet.NEED_BILLING_SPAY.name) {
-      customSheetPaymentInfo.addressInPaymentSheet ==
-          AddressInPaymentSheet.NEED_BILLING_SPAY;
-    } else if(json["addressInPaymentSheet"] == AddressInPaymentSheet.NEED_SHIPPING_SPAY.name) {
-      customSheetPaymentInfo.addressInPaymentSheet ==
-          AddressInPaymentSheet.NEED_SHIPPING_SPAY;
-    } else if(json["addressInPaymentSheet"] == AddressInPaymentSheet.SEND_SHIPPING.name) {
-      customSheetPaymentInfo.addressInPaymentSheet ==
-          AddressInPaymentSheet.SEND_SHIPPING;
-    }
+    } else if(json["addressInPaymentSheet"] == AddressInPaymentSheet.NEED_BILLING_AND_SHIPPING.name)
+      customSheetPaymentInfo.addressInPaymentSheet = AddressInPaymentSheet.NEED_BILLING_AND_SHIPPING;
+    else if(json["addressInPaymentSheet"] == AddressInPaymentSheet.NEED_BILLING_SEND_SHIPPING.name)
+      customSheetPaymentInfo.addressInPaymentSheet == AddressInPaymentSheet.NEED_BILLING_SEND_SHIPPING;
+    else if(json["addressInPaymentSheet"] == AddressInPaymentSheet.NEED_BILLING_SPAY.name)
+      customSheetPaymentInfo.addressInPaymentSheet == AddressInPaymentSheet.NEED_BILLING_SPAY;
+    else if(json["addressInPaymentSheet"] == AddressInPaymentSheet.NEED_SHIPPING_SPAY.name)
+      customSheetPaymentInfo.addressInPaymentSheet == AddressInPaymentSheet.NEED_SHIPPING_SPAY;
+    else if(json["addressInPaymentSheet"] == AddressInPaymentSheet.SEND_SHIPPING.name)
+      customSheetPaymentInfo.addressInPaymentSheet == AddressInPaymentSheet.SEND_SHIPPING;
 
     List<Brand> brandlist =[];
     if(json["allowedCardBrand"] == null){
@@ -374,7 +408,9 @@ class CustomSheetPaymentInfo {
           brandlist.add(Brand.PAGOBANCOMAT);
         } else if(brand == Brand.OCTOPUS.name) {
           brandlist.add(Brand.OCTOPUS);
-        } else if(brand == Brand.MADA.name) {
+        }else if(brand == Brand.ELO.name) {
+          brandlist.add(Brand.ELO);
+        }else if(brand == Brand.MADA.name) {
           brandlist.add(Brand.MADA);
         }
       }

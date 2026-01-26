@@ -25,10 +25,13 @@ abstract class SamsungPaySdkFlutterPlatform extends PlatformInterface {
 
   Future<bool?> initSamsungPay(PartnerInfo? partnerInfo);
   Future<void> getSamsungPayStatus(StatusListener statusListener);
+  Future<int> getVersionCode();
+  Future<String> getVersionName();
   Future<void> getWalletInfo(StatusListener statusListener);
   Future<void>goToUpdatePage();
   Future<void>activateSamsungPay();
   Future<void> addCard(AddCardInfo addCardInfo,AddCardListener addCardListener);
+  Future<void> addCobadgeCard(AddCardInfo primaryAddCardInfo,AddCardInfo secondaryAddCardInfo,AddCardListener addCardListener);
   Future<void> getAllCards(GetCardListener getCardListener);
   Future<void> requestCardInfo(PaymentCardInfo paymentCardInfo, CardInfoListener cardInfoListener);
   Future<void> startInAppPayWithCustomSheet(CustomSheetPaymentInfo customSheetPaymentInfo, CustomSheetTransactionInfoListener customSheetTransactionInfoListener);
